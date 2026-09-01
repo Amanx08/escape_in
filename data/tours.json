@@ -1,0 +1,150 @@
+{
+  "heading": "Our recommended tours for life's greatest adventures",
+  "tabs": ["classic tours", "cruise tours", "private tours", "day tours"],
+  "tours": [
+    {
+      "id": 1,
+      "country": "Vietnam, Cambodia",
+      "badge": "Customer Favourite",
+      "types": ["classic tours", "private tours"],
+      "title": "The Very Best of Vietnam & Cambodia",
+      "highlights": [
+        "Four-night Mekong River cruise from Vietnam to Cambodia",
+        "Two-night cruise around Ha Long Bay and Lan Ha Bay",
+        "Explore the temples of Angkor Wat"
+      ],
+      "departing": "Oct 2026 - Mar 2027",
+      "duration": "23 days",
+      "priceFrom": "£5,995",
+      "pricePer": "Per person",
+      "image": "/images/dest-china.jpg",
+      "href": "/vietnam-tours/the-very-best-of-vietnam-cambodia-tour"
+    },
+    {
+      "id": 2,
+      "country": "Sri Lanka",
+      "badge": "Customer Favourite",
+      "types": ["classic tours", "private tours"],
+      "title": "The Very Best of Sri Lanka",
+      "highlights": [
+        "Explore the historic site of Sigiriya",
+        "Visit Sri Lanka's tea plantations",
+        "Safari in Yala National Park"
+      ],
+      "departing": "Jan 2027 - Apr 2027",
+      "duration": "16 days",
+      "priceFrom": "£3,695",
+      "pricePer": "Per person",
+      "image": "/images/dest-srilanka.jpg",
+      "href": "/sri-lanka-tours/the-very-best-of-sri-lanka-tour"
+    },
+    {
+      "id": 3,
+      "country": "Costa Rica",
+      "badge": null,
+      "types": ["classic tours", "private tours"],
+      "title": "The Very Best of Costa Rica",
+      "highlights": [
+        "Cruise the canals of Tortuguero National Park",
+        "Walk in the foothills of Arenal Volcano",
+        "Traverse the hanging bridges of Arenal and Monteverde"
+      ],
+      "departing": "Nov 2026 - Apr 2027",
+      "duration": "19 days",
+      "priceFrom": "£5,795",
+      "pricePer": "Per person",
+      "image": "/images/dest-srilanka.jpg",
+      "href": "/costa-rica-tours/the-very-best-of-costa-rica-tour"
+    },
+    {
+      "id": 4,
+      "country": "New Zealand, Singapore",
+      "badge": null,
+      "types": ["classic tours"],
+      "title": "Spectacular New Zealand",
+      "highlights": [
+        "Cruise through Milford Sound",
+        "Exploring Stewart Island",
+        "Experience Rotorua's Māori Culture & Geothermal Wonders"
+      ],
+      "departing": "Jan 2027 - Apr 2028",
+      "duration": "29 days",
+      "priceFrom": "£6,995",
+      "pricePer": "Per person",
+      "image": "/images/dest-australia.jpg",
+      "href": "/new-zealand-tours/spectacular-new-zealand-tour"
+    },
+    {
+      "id": 5,
+      "country": "Japan",
+      "badge": "Customer Favourite",
+      "types": ["classic tours"],
+      "title": "The Very Best of Japan",
+      "highlights": [
+        "Explore Tokyo's vibrant districts and temples",
+        "Traditional Ryokan stay in Kyoto",
+        "Visit iconic Mt Fuji and Hakone"
+      ],
+      "departing": "Mar 2027 - Nov 2027",
+      "duration": "20 days",
+      "priceFrom": "£6,295",
+      "pricePer": "Per person",
+      "image": "/images/dest-japan.jpg",
+      "href": "/japan-tours/the-very-best-of-japan-tour"
+    },
+    {
+      "id": 6,
+      "country": "India",
+      "badge": null,
+      "types": ["classic tours", "private tours"],
+      "title": "The Golden Triangle & Goa",
+      "highlights": [
+        "Visit the magnificent Taj Mahal at sunrise",
+        "Explore the Pink City of Jaipur",
+        "Relax on Goa's beautiful beaches"
+      ],
+      "departing": "Oct 2026 - Apr 2027",
+      "duration": "14 days",
+      "priceFrom": "£3,295",
+      "pricePer": "Per person",
+      "image": "/images/dest-india.jpg",
+      "href": "/india-tours/golden-triangle-goa-tour"
+    },
+    {
+      "id": 7,
+      "country": "South Africa",
+      "badge": "Customer Favourite",
+      "types": ["cruise tours"],
+      "title": "Spectacular South Africa",
+      "highlights": [
+        "Safari in Kruger National Park",
+        "Wine tasting in the Cape Winelands",
+        "Visit Cape Point Nature Reserve"
+      ],
+      "departing": "Jun 2027 - Sep 2027",
+      "duration": "18 days",
+      "priceFrom": "£5,495",
+      "pricePer": "Per person",
+      "image": "/images/dest-india.jpg",
+      "href": "/south-africa-tours/spectacular-south-africa-tour"
+    },
+    {
+      "id": 8,
+      "country": "Australia",
+      "badge": null,
+      "types": ["cruise tours"],
+      "title": "Essential Australia",
+      "highlights": [
+        "Sydney Harbour Bridge climb",
+        "Experience the Great Barrier Reef",
+        "Explore Uluru and the Red Centre"
+      ],
+      "departing": "Apr 2027 - Oct 2027",
+      "duration": "19 days",
+      "priceFrom": "£5,195",
+      "pricePer": "Per person",
+      "image": "/images/dest-australia.jpg",
+      "href": "/australia-tours/essential-australia-tour"
+    }
+  ]
+}

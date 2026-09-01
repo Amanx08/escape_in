@@ -1,0 +1,48 @@
+{
+  "heading": "Customer testimonials",
+  "subheading": "India Escapes uses Feefo, the global feedback engine, to gather genuine and independently verified reviews.",
+  "poweredBy": "Feefo",
+  "viewAllHref": "/about-us/customer-reviews",
+  "reviews": [
+    {
+      "id": 1,
+      "title": "Pleasant and professional",
+      "author": "Jacqui Dalton",
+      "rating": 5,
+      "date": "March 2025",
+      "text": "Very pleasant and professional service. The team were incredibly helpful in planning our trip and answered all our questions promptly. Would highly recommend India Escapes to anyone looking for a high-quality escorted tour."
+    },
+    {
+      "id": 2,
+      "title": "Excellent service thank you",
+      "author": "Stephen Quelch",
+      "rating": 5,
+      "date": "February 2025",
+      "text": "Excellent service from start to finish. The booking process was smooth and straightforward. Our tour guide was knowledgeable and friendly. An absolutely wonderful experience that exceeded all expectations."
+    },
+    {
+      "id": 3,
+      "title": "Great customer service",
+      "author": "Paul Wilton",
+      "rating": 5,
+      "date": "January 2025",
+      "text": "Brilliant customer service throughout the entire holiday planning process. The team went above and beyond to make sure everything was perfect. Our trip to Japan was absolutely magical - every detail was taken care of."
+    },
+    {
+      "id": 4,
+      "title": "Amazing Service",
+      "author": "Fiona May",
+      "rating": 5,
+      "date": "December 2024",
+      "text": "Amazing service from beginning to end. From the initial enquiry to arriving back home, India Escapes made everything effortless. The Sri Lanka tour was an unforgettable experience. We have already booked our next adventure!"
+    },
+    {
+      "id": 5,
+      "title": "Review of the planning and booking process first class",
+      "author": "Margaret Thompson",
+      "rating": 5,
+      "date": "November 2024",
+      "text": "The planning and booking process was first class. Every query was dealt with quickly and efficiently. Our tour of Australia was simply spectacular - the itinerary was perfectly balanced between guided excursions and free time."
+    }
+  ]
+}

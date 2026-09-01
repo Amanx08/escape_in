@@ -1,0 +1,61 @@
+{
+  "heading": "Our destinations",
+  "destinations": [
+    {
+      "id": "india",
+      "name": "India",
+      "offer": "Save up to £200 per person",
+      "description": "With its vibrant traditions, breathtaking landscapes and world-famous cuisine, India is a destination that captivates from the moment you arrive.",
+      "image": "/images/dest-india.jpg",
+      "href": "/india-tours",
+      "size": "large"
+    },
+    {
+      "id": "srilanka",
+      "name": "Sri Lanka",
+      "offer": "Save up to £200 per person",
+      "description": "This tranquil island boasts idyllic beaches, ancient ruins, sacred temples, verdant tea plantations, and an abundance of elephants and diverse wildlife.",
+      "image": "/images/dest-srilanka.jpg",
+      "href": "/sri-lanka-tours",
+      "size": "medium"
+    },
+    {
+      "id": "australia",
+      "name": "Australia",
+      "offer": "Homebound stopovers from £29 per person",
+      "description": "Explore our award-winning tours of Australia, designed to showcase the country's icons, hidden gems and unique experiences.",
+      "image": "/images/dest-australia.jpg",
+      "href": "/australia-tours",
+      "size": "medium"
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "offer": "Save up to £200 per person",
+      "description": "Discover our carefully curated tours of Japan for the perfect balance of cultural treasures, modern wonders and unforgettable travel moments.",
+      "image": "/images/dest-japan.jpg",
+      "href": "/japan-tours",
+      "size": "medium"
+    },
+    {
+      "id": "china",
+      "name": "China",
+      "offer": "Save up to £200 per person",
+      "description": "With thousands of years of history, it's easy to see why China remains one of the world's favourite travel destinations.",
+      "image": "/images/dest-china.jpg",
+      "href": "/china-tours",
+      "size": "medium"
+    },
+    {
+      "id": "newzealand",
+      "name": "New Zealand",
+      "offer": "Homebound stopovers from £29 per person",
+      "description": "From geothermal landscapes and snow-capped peaks to Maori culture, and vibrant cities – a New Zealand tour promises the trip of a lifetime.",
+      "image": "/images/dest-australia.jpg",
+      "href": "/new-zealand-tours",
+      "size": "large"
+    }
+  ],
+  "ctaLabel": "View all destinations",
+  "ctaHref": "/destinations"
+}

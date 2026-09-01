@@ -1,0 +1,37 @@
+{
+  "heading": "Our expertly crafted collections...",
+  "collections": [
+    {
+      "id": "solos",
+      "name": "Exclusively Solos tours",
+      "tagline": "Tours for solo travellers with no single supplement...",
+      "offer": "Save up to £200 per person",
+      "image": "/images/dest-srilanka.jpg",
+      "href": "/tour-types/exclusively-solos"
+    },
+    {
+      "id": "cruise",
+      "name": "Cruise tours",
+      "tagline": "Unforgettable cruise experiences combined with escorted land tours.",
+      "offer": "Save up to £250 per person",
+      "image": "/images/dest-australia.jpg",
+      "href": "/tour-types/cruise-tours"
+    },
+    {
+      "id": "day",
+      "name": "Day tours",
+      "tagline": "Short, immersive day escapes designed around city highlights, culture and scenery.",
+      "offer": "Flexible departure options",
+      "image": "/images/dest-india.jpg",
+      "href": "/tour-types/day-tours"
+    },
+    {
+      "id": "rail",
+      "name": "Rail tours",
+      "tagline": "Scenic rail adventures through some of the world's most beautiful landscapes.",
+      "offer": "Save up to £200 per person",
+      "image": "/images/dest-japan.jpg",
+      "href": "/tour-types/rail-tours"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "topBar": [
+    { "label": "Destinations", "href": "/destinations", "hasMega": true },
+    { "label": "Tour Types", "href": "/tour-types", "hasMega": true },
+    { "label": "About Us", "href": "/about-us", "hasMega": false },
+    { "label": "Offers", "href": "/offers", "hasMega": false },
+    { "label": "Brochures", "href": "/our-brochures", "hasMega": false },
+    { "label": "Faqs", "href": "/faqs", "hasMega": false },
+    { "label": "Blogs", "href": "/blog", "hasMega": false },
+    { "label": "Contact Us", "href": "/contact", "hasMega": false }
+  ],
+  "megaMenu": {
+    "destinations": {
+      "regions": [
+        {
+          "name": "Asia",
+          "href": "/asia",
+          "countries": [
+            { "name": "India", "href": "/india-tours", "image": "/images/dest-india.jpg", "offer": "Save up to £200 per person", "tours": ["14-day The Golden Triangle & Goa", "11-day The Golden Triangle & Ranthambore", "25-day Grand Tour of India", "14-day Splendours of Kerala", "17-day Indian Wildlife Adventure", "17-day The Brahmaputra River & Darjeeling"] },
+            { "name": "Nepal", "href": "/nepal-tours", "image": "/images/dest-japan.jpg", "offer": "Save up to £200 per person", "tours": ["22-day A Journey Through the Himalayas", "24-day Wonders of India & Nepal", "18-day Treasures of Nepal & Bhutan"] },
+            { "name": "Bhutan", "href": "/bhutan-tours", "image": "/images/dest-india.jpg", "offer": "Save up to £200 per person", "tours": ["22-day A Journey Through the Himalayas", "18-day Treasures of Nepal & Bhutan"] },
+            { "name": "Sri Lanka", "href": "/sri-lanka-tours", "image": "/images/dest-srilanka.jpg", "offer": "Save up to £200 per person", "tours": ["16-day The Very Best of Sri Lanka", "17-day Wild Sri Lanka", "14-day Treasures of Sri Lanka", "13-day Classic Sri Lanka"] },
+            { "name": "Japan", "href": "/japan-tours", "image": "/images/dest-japan.jpg", "offer": "Save up to £200 per person", "tours": ["20-day The Very Best of Japan", "15-day Wonders of Japan", "16-day Treasures of Japan", "23-day Highlights of China & Japan"] },
+            { "name": "China", "href": "/china-tours", "image": "/images/dest-china.jpg", "offer": "Save up to £200 per person", "tours": ["23-day The Very Best of China", "15-day Essential China", "17-day Discover China", "23-day Highlights of China & Japan"] },
+            { "name": "Borneo", "href": "/borneo-tours", "image": "/images/dest-srilanka.jpg", "offer": "Save up to £200 per person", "tours": ["17-day The Very Best of Borneo"] },
+            { "name": "Vietnam", "href": "/vietnam-tours", "image": "/images/dest-china.jpg", "offer": "Save up to £200 per person", "tours": ["23-day The Very Best of Vietnam & Cambodia", "15-day Classic Vietnam & Cambodia", "18-day Discover Vietnam & Cambodia"] },
+            { "name": "Cambodia", "href": "/cambodia-tours", "image": "/images/dest-india.jpg", "offer": "Save up to £200 per person", "tours": ["23-day The Very Best of Vietnam & Cambodia", "18-day Discover Vietnam & Cambodia"] },
+            { "name": "Uzbekistan", "href": "/uzbekistan-tours", "image": "/images/dest-china.jpg", "offer": "Save £100 per person", "tours": ["14-day The Very Best of Uzbekistan"] }
+          ]
+        },
+        {
+          "name": "Australasia",
+          "href": "/australasia",
+          "countries": [
+            { "name": "Australia", "href": "/australia-tours", "image": "/images/dest-australia.jpg", "offer": "Homebound stopovers from £29", "tours": ["19-day Essential Australia", "29-day The Very Best of Australia", "30-day Highlights of Australia & New Zealand"] },
+            { "name": "New Zealand", "href": "/new-zealand-tours", "image": "/images/dest-australia.jpg", "offer": "Homebound stopovers from £29", "tours": ["30-day Highlights of Australia & New Zealand", "27-day New Zealand by Rail, Road & Sea", "28-day The Very Best of New Zealand"] }
+          ]
+        },
+        {
+          "name": "North America",
+          "href": "/north-america",
+          "countries": [
+            { "name": "USA", "href": "/usa-tours", "image": "/images/dest-australia.jpg", "offer": "Save up to £175 per person", "tours": ["16-day The Very Best of California", "18-day America's Spectacular National Parks"] },
+            { "name": "Canada", "href": "/canada-tours", "image": "/images/dest-china.jpg", "offer": "Save up to £175 per person", "tours": ["15-day Spectacular Canadian Rockies", "14-day The Very Best of Eastern Canada"] },
+            { "name": "Alaska", "href": "/alaska-tours", "image": "/images/dest-japan.jpg", "offer": "Save up to £175 per person", "tours": ["22-day Spectacular Canadian Rockies & Alaskan Cruise", "21-day Grand Canadian Rockies & Alaskan Cruise"] }
+          ]
+        },
+        {
+          "name": "Latin America",
+          "href": "/latin-america",
+          "countries": [
+            { "name": "Costa Rica", "href": "/costa-rica-tours", "image": "/images/dest-srilanka.jpg", "offer": "Save £150 per person", "tours": ["19-day The Very Best of Costa Rica"] },
+            { "name": "Brazil", "href": "/brazil-tours", "image": "/images/dest-india.jpg", "offer": "Save up to £150 per person", "tours": ["26-day The Very Best of South America"] },
+            { "name": "Peru", "href": "/peru-tours", "image": "/images/dest-china.jpg", "offer": "Save up to £150 per person", "tours": ["19-day The Very Best of Peru", "26-day The Very Best of South America"] }
+          ]
+        },
+        {
+          "name": "Africa",
+          "href": "/africa",
+          "countries": [
+            { "name": "Kenya", "href": "/kenya-tours", "image": "/images/dest-srilanka.jpg", "offer": "Save up to £200 per person", "tours": ["16-day The Very Best of Kenya"] },
+            { "name": "South Africa", "href": "/south-africa-tours", "image": "/images/dest-india.jpg", "offer": "Save up to £200 per person", "tours": ["18-day Spectacular South Africa", "25-day The Very Best of South Africa"] },
+            { "name": "Zimbabwe", "href": "/zimbabwe-tours", "image": "/images/dest-china.jpg", "offer": "Save up to £200 per person", "tours": ["17-day African Rail Adventure"] },
+            { "name": "Egypt", "href": "/egypt-tours", "image": "/images/dest-australia.jpg", "offer": "Save up to £250 per person", "tours": ["12-day Classic Egypt", "15-day The Very Best of Egypt"] }
+          ]
+        }
+      ]
+    }
+  }
+}

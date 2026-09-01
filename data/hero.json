@@ -1,0 +1,38 @@
+{
+  "heading": "For life's greatest journeys",
+  "subheading": "Leisurely & flexible escorted tours",
+  "backgroundImage": "/images/s3.webp",
+  "feefo": {
+    "rating": "4.8/5",
+    "count": "1,441",
+    "url": "https://www.feefo.com/en-GB/reviews/distant-journeys-ltd",
+    "stars": 5
+  },
+  "search": {
+    "fields": [
+      {
+        "id": "region",
+        "label": "Region",
+        "placeholder": "Any Region",
+        "type": "select",
+        "options": ["Asia", "Australasia", "North America", "Latin America", "Africa"]
+      },
+      {
+        "id": "destination",
+        "label": "Destination",
+        "placeholder": "Any Destination",
+        "type": "select",
+        "options": ["India", "Sri Lanka", "Japan", "China", "Australia", "New Zealand", "USA", "Canada", "Kenya", "South Africa"]
+      },
+      {
+        "id": "departing",
+        "label": "Departing",
+        "placeholder": "Any Month",
+        "type": "select",
+        "options": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      }
+    ],
+    "buttonLabel": "Search",
+    "buttonHref": "/search"
+  }
+}

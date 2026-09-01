@@ -1,0 +1,84 @@
+{
+  "columns": [
+    {
+      "heading": "India Escapes",
+      "links": [
+        { "label": "About Us", "href": "/about-us" },
+        { "label": "Our Team", "href": "/about-us/meet-the-team" },
+        { "label": "Careers", "href": "/careers" },
+        { "label": "Environmental Policy", "href": "/environmental-policy" },
+        { "label": "Modern Slavery Act", "href": "/modern-slavery-act" }
+      ]
+    },
+    {
+      "heading": "Holiday Inspiration",
+      "links": [
+        { "label": "Destinations", "href": "/destinations" },
+        { "label": "Tour Types", "href": "/tour-types" },
+        { "label": "Our Blog", "href": "/blog" },
+        { "label": "Request a brochure", "href": "/our-brochures" }
+      ]
+    },
+    {
+      "heading": "Manage Booking",
+      "links": [
+        { "label": "Manage my booking", "href": "https://mmb.indiaescapes.in" },
+        { "label": "Booking conditions", "href": "/booking-conditions" },
+        { "label": "Insurance", "href": "/insurance" },
+        { "label": "Holiday Extras", "href": "/holiday-extras" },
+        { "label": "Refer a Friend", "href": "/refer-a-friend" }
+      ]
+    },
+    {
+      "heading": "Contact Us",
+      "type": "contact",
+      "phone": "0800 141 3667",
+      "phoneHref": "tel:08001413667",
+      "phoneHours": "Call us from 09:00 – 17:30 on",
+      "links": [
+        { "label": "Contact us", "href": "/contact" },
+        { "label": "FAQs", "href": "/faqs" }
+      ]
+    },
+    {
+      "heading": "Other Links",
+      "links": [
+        { "label": "Customer reviews", "href": "/about-us/customer-reviews" },
+        { "label": "Image Credits", "href": "/image-credits" },
+        { "label": "Cookies/Privacy", "href": "/privacy-policy" },
+        { "label": "Sitemap", "href": "/sitemap.xml" }
+      ]
+    }
+  ],
+  "social": {
+    "heading": "Follow us",
+    "facebook": "https://www.facebook.com/indiaescapes",
+    "instagram": "https://www.instagram.com/indiaescapes"
+  },
+  "newsletter": {
+    "heading": "Stay in the know",
+    "gdprNote": "In accordance with the latest GDPR data regulations, you can unsubscribe from our emails at any time. You can read our privacy policy that provides further information about how we use personal data.",
+    "buttonLabel": "Subscribe"
+  },
+  "brochure": {
+    "heading": "Order your FREE India Escapes brochure now",
+    "subheading": "Get our latest brochure sent straight to you free of charge.",
+    "ctaLabel": "Order now",
+    "ctaHref": "/our-brochures",
+    "image": "/images/dest-australia.jpg"
+  },
+  "bottomBar": {
+    "registered": "Registered office: 8 Hattersley Court, Ormskirk, Lancashire, L39 2AY, United Kingdom",
+    "copyright": "© 2026 India Escapes",
+    "registration": "Registered in England: 08994196",
+    "countryLabel": "COUNTRY",
+    "countryDefault": "UK (GBP)",
+    "legalLinks": [
+      { "label": "Privacy Policy", "href": "/privacy-policy" },
+      { "label": "Cookie Policy", "href": "/cookie-policy" },
+      { "label": "Terms & Conditions", "href": "/terms" }
+    ],
+    "trustBadges": ["AITO", "ABTOT", "British Travel Awards", "Platinum Trusted"],
+    "paymentMethods": ["Visa", "Mastercard"]
+  }
+}
