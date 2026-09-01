@@ -401,14 +401,36 @@ export async function getPackageBySlug(slug: string) {
     "accommodations",
   ];
 
+  // const related = await Promise.all(
+  //   collections.map(async (collection) => [
+  //     collection,
+  //     await readCollection(collection, [Query.equal("package_id", packageItem.id), Query.equal("packageId", packageItem.id)])
+  //       .then((documents) => documents && documents.length ? documents : readCollection(collection, [Query.equal("package_id", packageItem.id)]))
+  //       .then((documents) => documents && documents.length ? documents : readCollection(collection, [Query.equal("packageId", packageItem.id)])),
+  //   ] as const)
+  // );
+
   const related = await Promise.all(
-    collections.map(async (collection) => [
-      collection,
-      await readCollection(collection, [Query.equal("package_id", packageItem.id), Query.equal("packageId", packageItem.id)])
-        .then((documents) => documents && documents.length ? documents : readCollection(collection, [Query.equal("package_id", packageItem.id)]))
-        .then((documents) => documents && documents.length ? documents : readCollection(collection, [Query.equal("packageId", packageItem.id)])),
-    ] as const)
-  );
+  collections.map(async (collection) => {
+   let documents: any[] | null = [];
+
+    try {
+      documents = await readCollection(collection, [
+        Query.equal("package_id", packageItem.id),
+      ]);
+    } catch {}
+
+    if (!documents?.length) {
+      try {
+        documents = await readCollection(collection, [
+          Query.equal("packageId", packageItem.id),
+        ]);
+      } catch {}
+    }
+
+    return [collection, documents] as const;
+  })
+);
 
   const records = new Map(related);
   const getRecords = (collection: string) => records.get(collection) || [];
