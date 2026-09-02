@@ -8,10 +8,6 @@ interface PageProps {
   params: { id: string };
 }
 
-export async function generateStaticParams() {
-  return (await getDestinations()).map((destination) => ({ id: destination.slug }));
-}
-
 export default async function DestinationDetailPage({ params }: PageProps) {
   const resolvedParams = await params;
   const destinations = await getDestinations();

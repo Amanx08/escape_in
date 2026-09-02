@@ -32,8 +32,8 @@
     {
       "heading": "Contact Us",
       "type": "contact",
-      "phone": "0800 141 3667",
-      "phoneHref": "tel:08001413667",
+      "phone": "+91 80910 66115",
+      "phoneHref": "tel:+918091066115",
       "phoneHours": "Call us from 09:00 – 17:30 on",
       "links": [
         { "label": "Contact us", "href": "/contact" },
@@ -68,11 +68,11 @@
     "image": "/images/dest-australia.jpg"
   },
   "bottomBar": {
-    "registered": "Registered office: 8 Hattersley Court, Ormskirk, Lancashire, L39 2AY, United Kingdom",
+    "registered": "Registered office: Top floor verma building, near mangal murti store, Bhatakuffer chowk, Sanjauli, Shimla, Himachal Pradesh, IN.PIN - 171006",
     "copyright": "© 2026 India Escapes",
-    "registration": "Registered in England: 08994196",
+    "registration": "Registered in India, HP : 11-2353/2025-DTO-SML",
     "countryLabel": "COUNTRY",
-    "countryDefault": "UK (GBP)",
+    "countryDefault": "IN",
     "legalLinks": [
       { "label": "Privacy Policy", "href": "/privacy-policy" },
       { "label": "Cookie Policy", "href": "/cookie-policy" },

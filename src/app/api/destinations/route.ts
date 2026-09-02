@@ -3,6 +3,10 @@ import { getDestinations } from "@/lib/content";
 
 export async function GET() {
   return NextResponse.json(await getDestinations(), {
-    headers: { "Cache-Control": "s-maxage=300, stale-while-revalidate=3600" },
+    headers: { 
+      "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+      "Pragma": "no-cache",
+      "Expires": "0"
+    },
   });
 }

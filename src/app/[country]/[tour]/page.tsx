@@ -20,10 +20,6 @@ function narrativeText(value: unknown): string {
   return value == null ? "" : String(value).trim();
 }
 
-export async function generateStaticParams() {
-  return (await getPackages()).map((packageItem) => ({ country: packageItem.countrySlug, tour: packageItem.slug }));
-}
-
 export default async function TourDetailPage({ params }: PageProps) {
   const resolvedParams = await params;
   const candidate = (await getPackages()).find(

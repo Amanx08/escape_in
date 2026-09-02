@@ -87,7 +87,6 @@ export interface BlogRecord {
 const endpoint = process.env.APPWRITE_ENDPOINT || "https://fra.cloud.appwrite.io/v1";
 const projectId = process.env.APPWRITE_PROJECT_ID || "69441e9b00062a6520c1";
 const databaseId = process.env.APPWRITE_DATABASE_ID || "694423e30037647a97c1";
-const collectionCache = new Map<string, Promise<Record<string, unknown>[] | null>>();
 
 function value(record: Record<string, unknown>, ...keys: string[]) {
   for (const key of keys) {
@@ -109,7 +108,6 @@ function slugify(input: string) {
 function normalizeRouteSlug(input: string, fallbackLabel = "") {
   const candidate = (input || fallbackLabel || "").trim();
   if (!candidate) return "";
-
   const withoutQuery = candidate.split("?")[0].split("#")[0];
   const lastSegment = withoutQuery.split("/").filter(Boolean).pop() || withoutQuery;
   return slugify(lastSegment.replace(/^tour-types\//i, ""));
@@ -123,7 +121,6 @@ function decodeObjectString(value: string): string {
   const compact = value.trim();
   if (!compact) return "";
   if (!(compact.startsWith("{") || compact.startsWith("["))) return plainText(compact);
-
   try {
     const parsed = JSON.parse(compact.replace(/'/g, '"'));
     return normalizeNarrative(parsed);
@@ -145,10 +142,7 @@ function normalizeNarrative(value: unknown): string {
   if (Array.isArray(value)) return value.map((item) => normalizeNarrative(item)).filter(Boolean).join(" ");
   if (value && typeof value === "object") {
     const record = value as Record<string, unknown>;
-    return Object.values(record)
-      .map((item) => normalizeNarrative(item))
-      .filter(Boolean)
-      .join(" ");
+    return Object.values(record).map((item) => normalizeNarrative(item)).filter(Boolean).join(" ");
   }
   return value === null || value === undefined ? "" : String(value).trim();
 }
@@ -167,9 +161,7 @@ function asArray(value: unknown): unknown[] {
       return [value];
     }
   }
-  if (value !== null && value !== undefined && typeof value === "object") {
-    return [value];
-  }
+  if (value !== null && value !== undefined && typeof value === "object") return [value];
   return [];
 }
 
@@ -186,58 +178,29 @@ function extractTextFromObject(item: unknown): string {
 function relatedText(input: unknown) {
   const items = asArray(input);
   return items.flatMap((item) => {
-    if (typeof item === "string") {
-      return plainText(item) ? [plainText(item)] : [];
-    }
+    if (typeof item === "string") return plainText(item) ? [plainText(item)] : [];
     if (!item || typeof item !== "object") return [];
     const record = item as Record<string, unknown>;
-    const candidates = [
-      value(record, "name", "title", "label", "heading", "value", "text", "summary"),
-      value(record, "description", "details"),
-      value(record, "inclusion"),
-      value(record, "expense"),
-      value(record, "exclusion"),
-      value(record, "info"),
-    ];
-    return candidates
-      .flatMap((candidate) => asArray(candidate).map((entry) => extractTextFromObject(entry)))
-      .map((entry) => plainText(entry))
-      .filter(Boolean);
+    const candidates = [value(record, "name", "title", "label", "heading", "value", "text", "summary"), value(record, "description", "details"), value(record, "inclusion"), value(record, "expense"), value(record, "exclusion"), value(record, "info")];
+    return candidates.flatMap((candidate) => asArray(candidate).map((entry) => extractTextFromObject(entry))).map((entry) => plainText(entry)).filter(Boolean);
   });
 }
 
 function relatedItinerary(input: unknown) {
   const items = asArray(input);
-
   return items.flatMap((item, index) => {
     if (typeof item === "string") {
       const cleaned = plainText(item);
       return cleaned ? [{ day: `Day ${index + 1}`, description: cleaned }] : [];
     }
     if (!item || typeof item !== "object") return [];
-
     const record = item as Record<string, unknown>;
     const rawDay = value(record, "day", "day_name", "title", "name", "label", "period");
     const rawDescription = value(record, "description", "details", "summary", "text", "itinerary", "content");
-    const dayText =
-      typeof rawDay === "string"
-        ? plainText(rawDay)
-        : typeof rawDay === "number"
-          ? String(rawDay)
-          : `Day ${index + 1}`;
-
-    const descriptionText =
-      typeof rawDescription === "string"
-        ? plainText(rawDescription)
-        : asArray(rawDescription)
-            .map((entry) => normalizeNarrative(entry))
-            .map((entry) => plainText(entry))
-            .filter(Boolean)
-            .join(" ") || normalizeNarrative(record).replace(/\s+/g, " ").trim();
-
+    const dayText = typeof rawDay === "string" ? plainText(rawDay) : typeof rawDay === "number" ? String(rawDay) : `Day ${index + 1}`;
+    const descriptionText = typeof rawDescription === "string" ? plainText(rawDescription) : asArray(rawDescription).map((entry) => normalizeNarrative(entry)).map((entry) => plainText(entry)).filter(Boolean).join(" ") || normalizeNarrative(record).replace(/\s+/g, " ").trim();
     const finalDescription = plainText(descriptionText || normalizeNarrative(record));
     if (!finalDescription) return [];
-
     return [{ day: dayText || `Day ${index + 1}`, description: finalDescription }];
   });
 }
@@ -246,16 +209,6 @@ function appwriteDatabases() {
   const client = new Client().setEndpoint(endpoint).setProject(projectId);
   if (process.env.APPWRITE_API_KEY) client.setKey(process.env.APPWRITE_API_KEY);
   return new Databases(client);
-}
-
-async function readCollection(collectionId: string, queries: string[] = []) {
-  const cacheKey = `${collectionId}:${queries.join("|")}`;
-  const cached = collectionCache.get(cacheKey);
-  if (cached) return cached;
-
-  const readPromise = readCollectionUncached(collectionId, queries);
-  collectionCache.set(cacheKey, readPromise);
-  return readPromise;
 }
 
 async function readCollectionUncached(collectionId: string, queries: string[]) {
@@ -276,6 +229,11 @@ async function readCollectionUncached(collectionId: string, queries: string[]) {
     console.error(`Appwrite read failed for ${collectionId}:`, error instanceof Error ? error.message : error);
     return null;
   }
+}
+
+async function readCollection(collectionId: string, queries: string[] = []) {
+  // ALWAYS fetch fresh data directly - no caching
+  return readCollectionUncached(collectionId, queries);
 }
 
 function destinationFallbackRecords(): DestinationRecord[] {
@@ -390,25 +348,7 @@ export async function getPackageBySlug(slug: string) {
   const packageItem = (await getPackages()).find((item) => item.slug === slug);
   if (!packageItem) return undefined;
 
-  const collections = [
-    "itinerary",
-    "package_inclusions",
-    "package_exclusions",
-    "package_expenses",
-    "package_important_informaion",
-    "locations",
-    "activities",
-    "accommodations",
-  ];
-
-  // const related = await Promise.all(
-  //   collections.map(async (collection) => [
-  //     collection,
-  //     await readCollection(collection, [Query.equal("package_id", packageItem.id), Query.equal("packageId", packageItem.id)])
-  //       .then((documents) => documents && documents.length ? documents : readCollection(collection, [Query.equal("package_id", packageItem.id)]))
-  //       .then((documents) => documents && documents.length ? documents : readCollection(collection, [Query.equal("packageId", packageItem.id)])),
-  //   ] as const)
-  // );
+  const collections = ["itinerary", "package_inclusions", "package_exclusions", "package_expenses", "package_important_informaion", "locations", "activities", "accommodations"];
 
   const related = await Promise.all(
     collections.map(async (collection) => {
@@ -441,42 +381,27 @@ export async function getPackageBySlug(slug: string) {
   });
 
   const inclusions = inclusionRecords.flatMap((record) => {
-    const values = [
-      value(record, "inclusions", "items", "list", "content", "details"),
-      value(record, "description", "summary"),
-    ];
+    const values = [value(record, "inclusions", "items", "list", "content", "details"), value(record, "description", "summary")];
     return values.flatMap((entry) => relatedText(entry));
   });
 
   const exclusions = exclusionRecords.flatMap((record) => {
-    const values = [
-      value(record, "exclusions", "items", "list", "content", "details"),
-      value(record, "description", "summary"),
-    ];
+    const values = [value(record, "exclusions", "items", "list", "content", "details"), value(record, "description", "summary")];
     return values.flatMap((entry) => relatedText(entry));
   });
 
   const expenses = expenseRecords.flatMap((record) => {
-    const values = [
-      value(record, "expenses", "items", "list", "content", "details"),
-      value(record, "description", "summary"),
-    ];
+    const values = [value(record, "expenses", "items", "list", "content", "details"), value(record, "description", "summary")];
     return values.flatMap((entry) => relatedText(entry));
   });
 
   const importantInformation = importantInfoRecords.flatMap((record) => {
-    const rawItems = [
-      value(record, "items", "info", "details", "content", "list"),
-      value(record, "description", "summary"),
-    ];
-
+    const rawItems = [value(record, "items", "info", "details", "content", "list"), value(record, "description", "summary")];
     return rawItems.flatMap((entry) => {
       const nested = asArray(entry);
       if (!nested.length) return [];
       return nested.flatMap((item) => {
-        if (typeof item === "string") {
-          return [{ title: "Important information", description: plainText(item) }];
-        }
+        if (typeof item === "string") return [{ title: "Important information", description: plainText(item) }];
         if (!item || typeof item !== "object") return [];
         const infoRecord = item as Record<string, unknown>;
         const title = plainText(text(infoRecord, "title", "name", "label") || "Important information");

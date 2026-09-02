@@ -9,10 +9,6 @@ interface PageProps {
   params: Promise<{ type: string }>;
 }
 
-export async function generateStaticParams() {
-  return (await getCategories()).map((category) => ({ type: category.slug }));
-}
-
 export default async function TourTypePage({ params }: PageProps) {
   const resolvedParams = await params;
   const categories = await getCategories();
@@ -21,7 +17,7 @@ export default async function TourTypePage({ params }: PageProps) {
     const categorySlug = category.slug.toLowerCase();
     return categorySlug === normalizedType || category.name.toLowerCase().replace(/\s+/g, "-") === normalizedType;
   });
-  const tours = (await getPackages()).filter((tour) => tour.types.some((type) => {
+  const tours = (await getPackages()).filter((tour) => tour.types.some((type: string) => {
     const candidate = type.toLowerCase().replace(/\s+/g, "-");
     return candidate === normalizedType || type.toLowerCase() === normalizedType;
   }));
@@ -104,10 +100,10 @@ export default async function TourTypePage({ params }: PageProps) {
                     <Link href={`/${tour.countrySlug}/${tour.slug}`}>{tour.title}</Link>
                   </h3>
                   <ul className="mb-6 space-y-2 text-gray-600">
-                    {tour.highlights.map((highlight) => (
+                      {tour.highlights.map((highlight: string) => (
                       <li key={highlight} className="flex items-start gap-2">
                         <span className="mt-1 text-primary-500">•</span>
-                        <span>{highlight}</span>
+                          <span>{String(highlight)}</span>
                       </li>
                     ))}
                   </ul>

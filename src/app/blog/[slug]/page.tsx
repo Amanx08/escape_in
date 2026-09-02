@@ -6,10 +6,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getBlogs, getPackages } from "@/lib/content";
 
-export async function generateStaticParams() {
-  return (await getBlogs()).map((blog) => ({ slug: blog.slug }));
-}
-
 function articleBlocks(content: string) {
   return content.split(/<\/(?:p|h[1-6]|li)>/i).map((block) => block.replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&rsquo;|&#8217;/g, "'").replace(/&ldquo;|&#8220;/g, '"').replace(/&rdquo;|&#8221;/g, '"').replace(/\s+/g, " ").trim()).filter((block) => block.length > 20);
 }

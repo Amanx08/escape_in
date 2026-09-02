@@ -34,13 +34,13 @@ export default function AboutSection() {
             transition={{ duration: 0.7 }}
           >
             <h2
-              className="text-6xl"
+              className="md:text-6xl text-3xl text-center lg:text-left"
             >
               The India escapes promise..
             </h2>
 
             {/* Trust badges row */}
-            <div className="flex flex-wrap gap-4 mt-6">
+            <div className="flex flex-wrap gap-4 mt-6 items-center justify-center lg:justify-start">
               {/* ABTOT */}
               <div className="p-2">
               <img src="/images/Ministry_of_Commerce_logo.svg" alt="MOC" className="h-15 object-cover" />

@@ -25,8 +25,8 @@ export default function TestimonialSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="cs-section-heading mb-8">{heading}</h2>
-              <p className="text-md text-gray-600 mb-6 leading-relaxed">
+              <h2 className="cs-section-heading mb-8 text-center lg:text-start">{heading}</h2>
+              <p className="text-md text-gray-600 mb-6 leading-relaxed text-center lg:text-start">
                 {subheading}
               </p>
               {/* <div className="flex items-center gap-2">

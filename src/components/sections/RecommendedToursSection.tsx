@@ -30,12 +30,12 @@ export default function RecommendedToursSection({ packages, categories }: { pack
           <h2 className="cs-section-heading mb-20">India Escapes packages</h2>
 
           {/* Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8 pt-5">
+          <div className="flex items-center justify-center gap-2 mb-8 pt-5 flex-nowrap overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors uppercase tracking-wide ${activeTab === tab
+                className={`px-5 py-2 text-nowrap rounded-full text-sm font-semibold transition-colors uppercase tracking-wide ${activeTab === tab
                     ? "bg-[#1a3d5c] text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
@@ -121,7 +121,7 @@ export default function RecommendedToursSection({ packages, categories }: { pack
 
                      
                       {/* Price */}
-                      
+
                       {/* <div className="flex items-end justify-center gap-2 mt-3 mb-4">
                         <div className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-0.5">Prices from</div>
                         <div className="text-xl font-bold text-gray-900 leading-none">₹{tour.priceFrom}</div>

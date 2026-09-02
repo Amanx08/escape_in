@@ -70,7 +70,7 @@ export default function AwardsSection() {
             ))}
           </div> */}
 
-          <p className="text-lg text-gray-500 mt-5 mx-auto leading-relaxed">
+          <p className="text-sm md:text-lg text-gray-500 mt-5 mx-auto leading-relaxed">
             {awardsData.description}
           </p>
         </motion.div>

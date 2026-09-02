@@ -17,7 +17,7 @@ export default function Footer() {
       {/* Book with Confidence Banner */}
       <div className="bg-[#fde3d5] rounded-[12px] m-5 py-5" data-banner="true">
         <div className="fw-container-custom flex items-center justify-between py-3 px-6 sm:px-8">
-          <p className="heading-h3 text-[#d43510]">
+          <p className="heading-h3 text-[#d43510] text-lg md:text-2xl font-bold mb-0 w-50 md:w-100 text-wrap md:text-nowrap">
             Our Book with Confidence Guarantee
           </p>
           <Link
@@ -31,17 +31,17 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="rounded-[12px] m-5 bg-[#3a3f3a] text-white pt-12 px-6 sm:px-8">
+      <div className="rounded-[12px] m-5 bg-[#3a3f3a] text-white pt-6 md:pt-12 px-6 sm:px-8">
 
         {/* Brochure CTA Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex-1">
             <h2 className="heading-h2">
-              Plan your India journey with {siteData.name}
+             Order your FREE India Escapes brochure now
             </h2>
-            <p className="body-lg text-gray-300">
+            {/* <p className="body-lg text-gray-300">
               Speak with our Himachal-based specialists about private journeys and handpicked stays.
-            </p>
+            </p> */}
           </div>
           <div className="shrink-0">
             <Link
@@ -54,33 +54,37 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-0 lg:items-center lg:justify-between">
-
-          <div className="fw-container-custom py-12">
+      <hr className="border-t border-gray-200 mt-10" />
 
 
-            {/* Logo and Awards */}
-            <div className="mb-12 flex flex-col sm:flex-row items-center justify-start gap-8">
-              {/* <img src="/images/India Escapes red on white.svg" alt={`${siteData.name} Logo`} className="h-52" /> */}
-              {/* <img src="/images/India Escapes red on white.svg" alt={`${siteData.name} Logo`} className="h-52" /> */}
-            </div>
+        <div className="flex flex-col lg:flex-row gap-0 md:gap-12 lg:gap-0 lg:items-start lg:justify-between">
+
+          <div className="fw-container-custom py-5">
+
+
+           
 
             {/* Main Content Grid */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-2 mt-5">
               {/* India Escapes Column */}
-              <div>
+              {/* <div>
                 <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-4">India Escapes</h3>
                 <ul className="space-y-2.5">
                   <li><Link href="/about-us" className="text-sm text-gray-300 hover:text-white">About Us</Link></li>
                   <li><Link href="/contact" className="text-sm text-gray-300 hover:text-white">Talk to our team</Link></li>
                 </ul>
-              </div>
+              </div> */}
+                   {/* Logo and Awards */}
+            <div className=" flex flex-col sm:flex-row items-center justify-start gap-8">
+              <img src="/images/main_weblogo.svg" alt={`${siteData.name} Logo`} className="h-22" />
+              {/* <img src="/images/India Escapes red on white.svg" alt={`${siteData.name} Logo`} className="h-52" /> */}
+            </div>
 
               {/* Holiday Inspiration Column */}
               <div>
-                <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-4">Holiday Inspiration</h3>
-                <ul className="space-y-2.5">
+                <h3 className="text-2xl font-bold uppercase tracking-wider text-white mb-4">Holiday Inspiration</h3>
+                <ul className="space-y-2.5 text-[16px]">
                   <li><Link href="/destinations" className="text-sm text-gray-300 hover:text-white">Destinations</Link></li>
                   <li><Link href="/tour-types" className="text-sm text-gray-300 hover:text-white">Tour Types</Link></li>
                   <li><Link href="/blog" className="text-sm text-gray-300 hover:text-white">Travel journal</Link></li>
@@ -89,8 +93,8 @@ export default function Footer() {
 
               {/* Planning Column */}
               <div>
-                <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-4">Plan your journey</h3>
-                <ul className="space-y-2.5">
+                <h3 className="text-2xl font-bold uppercase tracking-wider text-white mb-4">Plan your journey</h3>
+                <ul className="space-y-2.5 text-[16px]">
                   <li><Link href="/contact" className="text-sm text-gray-300 hover:text-white">Request a quote</Link></li>
                   <li><Link href="/faqs" className="text-sm text-gray-300 hover:text-white">Travel FAQs</Link></li>
                 </ul>
@@ -98,14 +102,14 @@ export default function Footer() {
 
               {/* Contact Us Column */}
               <div>
-                <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-4">Contact Us</h3>
+                <h3 className="text-2xl font-bold uppercase tracking-wider text-white mb-4">Contact Us</h3>
                 <div className="mb-4">
-                  <p className="text-xs text-gray-400 mb-1">{siteData.phoneHours}</p>
-                  <a href={`tel:${siteData.phoneFree.replace(/\s/g, "")}`} className="text-xl font-bold text-white hover:text-gray-300">
+                  <p className="text-xs text-gray-400 mb-1 text-[16px]">{siteData.phoneHours}</p>
+                  <a href={`tel:${siteData.phoneFree.replace(/\s/g, "")}`} className="text-2xl font-bold text-white hover:text-gray-300">
                     {siteData.phoneFree}
                   </a>
                 </div>
-                <ul className="space-y-2.5">
+                <ul className="space-y-2.5 text-[16px]">
                   <li><Link href="/contact" className="text-sm text-gray-300 hover:text-white">Contact us</Link></li>
                   <li><Link href="/faqs" className="text-sm text-gray-300 hover:text-white">FAQs</Link></li>
                 </ul>
@@ -113,8 +117,8 @@ export default function Footer() {
 
               {/* Other Links Column */}
               <div>
-                <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-4">Other Links</h3>
-                <ul className="space-y-2.5">
+                <h3 className="text-2xl font-bold uppercase tracking-wider text-white mb-4">Other Links</h3>
+                <ul className="space-y-2.5 text-[16px]">
                   <li><Link href="/customer-reviews" className="text-sm text-gray-300 hover:text-white">Customer reviews</Link></li>
                   <li><Link href="/image-credits" className="text-sm text-gray-300 hover:text-white">Image Credits</Link></li>
                   <li><Link href="/privacy-policy" className="text-sm text-gray-300 hover:text-white">Cookie/Privacy</Link></li>
@@ -124,7 +128,7 @@ export default function Footer() {
 
               {/* Follow Us */}
               <div>
-                <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-4">Follow us</h3>
+                <h3 className="text-2xl font-bold uppercase tracking-wider text-white mb-4">Follow us</h3>
                 <div className="flex gap-4">
                   <a href={social.facebook} className="inline-flex items-center justify-center h-10 w-10 border-2 border-white rounded-full text-white hover:bg-white hover:text-[#3a3f3a] transition">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
@@ -138,15 +142,10 @@ export default function Footer() {
             </div>
 
             {/* Newsletter Signup and Social */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              {/* Newsletter Form */}
-
-
-
-            </div>
+            
           </div>
           {/* newsletter */}
-          <div className="">
+          <div className="mt-10">
             <h3 className="text-2xl font-bold uppercase tracking-wider text-white mb-4">Stay in the know</h3>
             <div className="space-y-3 mb-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -184,6 +183,7 @@ export default function Footer() {
 
         </div>
       </div>
+
 
       {/* Bottom Bar */}
       <div className="bg-white border-t border-gray-200">
