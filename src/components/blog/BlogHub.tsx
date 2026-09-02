@@ -36,8 +36,8 @@ export default function BlogHub({ blogs, destinations }: { blogs: BlogRecord[]; 
     <section className="relative overflow-hidden bg-black text-white m-5 rounded-[20px] flex items-center" style={{ minHeight: 420 }}>
       <div className="container-custom relative py-20 lg:py-28">
         <p className="text-sm uppercase tracking-[0.3em] text-[#f5b36a]">India Escapes journal</p>
-        <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-tight sm:text-6xl">Stories, routes and ideas for travelling India well.</h1>
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">Local knowledge, thoughtful inspiration and practical notes from the landscapes and places we love.</p>
+        <h1 className="heading-h1 mt-5 max-w-4xl text-white">Stories, routes and ideas for travelling India well.</h1>
+        <p className="body-lg mt-6 max-w-2xl text-white/75">Local knowledge, thoughtful inspiration and practical notes from the landscapes and places we love.</p>
         <div className="mt-10 max-w-xl rounded-full bg-white p-2 shadow-xl">
           <label className="flex items-center gap-3 px-4 text-gray-500"><Search size={19} /><span className="sr-only">Search the journal</span><input value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} placeholder="Search the journal" className="w-full bg-transparent py-2 text-sm text-gray-900 outline-none" /></label>
         </div>

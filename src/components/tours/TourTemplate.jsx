@@ -119,7 +119,7 @@ export default function TourPage({ tour }) {
                 className="max-w-4xl w-full mx-auto "
               >
                 <h1
-                  className="font-display text-4xl sm:text-5xl lg:text-[64px] font-medium text-white mb-2 lg:mb-4 leading-tight drop-shadow-lg"
+                  className="heading-h1 text-white mb-2 lg:mb-4 drop-shadow-lg"
                 >
                   {title}
                 </h1>

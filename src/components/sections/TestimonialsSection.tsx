@@ -16,7 +16,7 @@ export default function TestimonialSection() {
   return (
     <section className="py-20 bg-[#fefaf5] overflow-hidden">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 items-center lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left: Heading and Intro */}
           <div className="lg:col-span-4 lg:pr-8">
             <motion.div
@@ -26,7 +26,7 @@ export default function TestimonialSection() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="cs-section-heading mb-8">{heading}</h2>
-              <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+              <p className="text-md text-gray-600 mb-6 leading-relaxed">
                 {subheading}
               </p>
               {/* <div className="flex items-center gap-2">
@@ -69,7 +69,7 @@ export default function TestimonialSection() {
                           <Star key={i} size={16} fill="#fbbf24" className="text-amber-400" />
                         ))}
                       </div>
-                      <h3 className="font-semibold text-gray-800 text-lg mb-3 leading-snug">
+                      <h3 className="font-semibold text-gray-800 text-2xl mb-3 leading-snug">
                         {review.title}
                       </h3>
                       <p className="text-sm text-gray-600 mb-6 flex-1 line-clamp-3">
@@ -95,7 +95,7 @@ export default function TestimonialSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 flex justify-center"
         >
-          <Link href={viewAllHref} className="bg-[#3a6a4c] hover:bg-[#2c5339] text-white px-8 py-3 rounded-full text-sm font-semibold tracking-wide flex items-center gap-2 transition-colors">
+          <Link href={viewAllHref} className="bg-[#3a6a4c] hover:bg-[#2c5339]  text-white px-7 py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-colors flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors">
             View all reviews
           </Link>
         </motion.div>

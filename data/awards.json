@@ -1,41 +1,41 @@
 {
-  "heading": "India Escapes holidays",
-  "description": "India Escapes has been designing escorted touring holidays for over a decade, creating journeys of a lifetime to the world's most iconic and sought-after destinations including Australia, New Zealand, India, Sri Lanka, Japan, China, Borneo, Vietnam & Cambodia, South Africa, Kenya, USA, Canada & Alaska and Latin America.",
+  "heading": "Travel with local experts you can trust",
+  "description": "Based in the Himalayas of Himachal Pradesh, India Escapes creates authentic journeys backed by genuine local expertise.  Trusted by travellers from the UK, Australia, South Africa, Europe, and North America, we provide honest advice, dedicated support, and carefully crafted itineraries designed from first-hand knowledge. We are associated with recognised tourism organisations, including Travel for LiFE (India Tourism), the Ministry of Commerce & Industry, Himachal Pradesh Tourism, and are trusted through leading global travel platforms such as TripAdvisor, TourRadar, GetYourGuide, and WeTravel. With a 4.8/5 traveller rating on TripAdvisor, India Escapes combines local expertise, trusted partnerships, and personalised service to help you experience India with confidence.",
   "awards": [
     {
       "id": 1,
-      "name": "Best Travel Company",
-      "detail": "Escorted Group Holidays",
+      "name": "Expertly Curated Itineraries",
+      "detail": "",
       "logo": "bta"
     },
     {
       "id": 2,
       "name": "Best Travel Company",
-      "detail": "To Australasia",
+      "detail": "",
       "logo": "bta"
     },
     {
       "id": 3,
-      "name": "Best Travel Company",
-      "detail": "To Sub-Saharan Africa",
+      "name": "Local Destination Specialists",
+      "detail": "",
       "logo": "bta"
     },
     {
       "id": 4,
       "name": "Best Travel Company",
-      "detail": "To Southeast Asia",
+      "detail": "",
       "logo": "bta"
     },
     {
       "id": 5,
       "name": "Best Travel Company",
-      "detail": "To Southern Asia",
+      "detail": "",
       "logo": "bta"
     },
     {
       "id": 6,
       "name": "Best Travel Company",
-      "detail": "To East/Central Asia",
+      "detail": "",
       "logo": "bta"
     }
   ]

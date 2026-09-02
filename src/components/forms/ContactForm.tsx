@@ -79,8 +79,8 @@ export default function ContactForm() {
     return (
       <div className="rounded-[28px] bg-[#FFF0EB] p-8 text-center sm:p-12" aria-live="polite">
         <CheckCircle2 className="mx-auto text-[#3F8C57]" size={52} />
-        <h2 className="mt-5 font-display text-3xl font-semibold text-[#3C3C3A]">Thank you for getting in touch</h2>
-        <p className="mx-auto mt-4 max-w-lg leading-7 text-[#3C3C3A]/75">Your message has been received. Our travel specialists will contact you shortly.</p>
+        <h2 className="heading-h2 mt-5 text-[#3C3C3A]">Thank you for getting in touch</h2>
+        <p className="body-md mx-auto mt-4 max-w-lg text-[#3C3C3A]/75">Your message has been received. Our travel specialists will contact you shortly.</p>
         <button
           type="button"
           onClick={() => setStatus("idle")}

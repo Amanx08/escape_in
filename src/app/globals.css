@@ -37,6 +37,12 @@
     line-height: 1.6;
   }
 
+  /* Global paragraph styling - 18px */
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     font-weight: 600;
@@ -55,6 +61,69 @@
 
   input, select, textarea, button {
     font-family: inherit;
+  }
+
+  /* Exclude p tag size changes in header, footer, and banners */
+  header p,
+  footer p,
+  [data-banner] p,
+  .banner p {
+    font-size: inherit;
+  }
+}
+
+@layer components {
+  /* Heading Styles - Playfair Display */
+  .heading-h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight;
+    font-family: var(--font-playfair);
+  }
+
+  .heading-h2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight;
+    font-family: var(--font-playfair);
+  }
+
+  .heading-h3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight;
+    font-family: var(--font-playfair);
+  }
+
+  .heading-h4 {
+    @apply text-xl sm:text-2xl lg:text-3xl font-semibold leading-tight;
+    font-family: var(--font-playfair);
+  }
+
+  /* Subheading Styles - Inter */
+  .subheading-lg {
+    @apply text-lg sm:text-xl font-semibold;
+    font-family: var(--font-inter);
+  }
+
+  .subheading-md {
+    @apply text-base sm:text-lg font-semibold;
+    font-family: var(--font-inter);
+  }
+
+  .subheading-sm {
+    @apply text-sm sm:text-base font-semibold;
+    font-family: var(--font-inter);
+  }
+
+  /* Body Text - Inter */
+  .body-lg {
+    @apply text-base sm:text-lg leading-relaxed;
+    font-family: var(--font-inter);
+  }
+
+  .body-md {
+    @apply text-sm sm:text-base leading-relaxed;
+    font-family: var(--font-inter);
+  }
+
+  .body-sm {
+    @apply text-xs sm:text-sm leading-relaxed;
+    font-family: var(--font-inter);
   }
 }
 
@@ -1260,10 +1329,11 @@ img {
 
 .cs-section-heading {
   font-size: 40px;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--color-brand-dark-blue);
   margin-bottom: 10px;
   line-height: 1.2;
+  font-family: var(--font-playfair);
 }
 
 .cs-searchform-mb{
@@ -1280,6 +1350,7 @@ img {
 
 .cs-section-heading {
 font-size: 28px;
+font-family: var(--font-playfair);
 
 }
 

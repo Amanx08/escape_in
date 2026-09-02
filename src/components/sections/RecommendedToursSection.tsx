@@ -121,11 +121,12 @@ export default function RecommendedToursSection({ packages, categories }: { pack
 
                      
                       {/* Price */}
-                      <div className="flex items-end justify-center gap-2 mt-3 mb-4">
-                        {/* <div className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-0.5">Prices from</div> */}
+                      
+                      {/* <div className="flex items-end justify-center gap-2 mt-3 mb-4">
+                        <div className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-0.5">Prices from</div>
                         <div className="text-xl font-bold text-gray-900 leading-none">₹{tour.priceFrom}</div>
-                        {/* <div className="text-[10px] text-gray-500 mb-0.5">{tour.pricePer}</div> */}
-                      </div>
+                        <div className="text-[10px] text-gray-500 mb-0.5">{tour.pricePer}</div>
+                      </div> */}
 
 
                   </div>

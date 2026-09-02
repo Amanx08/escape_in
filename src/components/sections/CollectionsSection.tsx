@@ -18,7 +18,7 @@ export default function CollectionsSection({ categories }: { categories: Categor
           transition={{ duration: 0.6 }}
           className="mb-8 text-center"
         >
-          <h2 className="cs-section-heading">Explore India travel styles</h2>
+          <h2 className="cs-section-heading">Handcrafted journeys, tailored by experts...</h2>
         </motion.div>
 
         {/* First row: 3 equal width cards */}
@@ -64,7 +64,7 @@ function CollectionCard({
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
         <div>
-          <h3 className="text-white font-display text-2xl mb-1 drop-shadow-md">{collection.name}</h3>
+          <h3 className="heading-h4 text-white mb-1 drop-shadow-md">{collection.name}</h3>
           <p className="text-[11px] text-white/90 font-medium uppercase tracking-wide">
             {collection.offer}
           </p>

@@ -107,10 +107,10 @@ export default function EnquiryForm({
       <div className="mb-7 flex items-start justify-between gap-5">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#D84524]">India Escapes</p>
-          <h2 className="mt-2 font-display text-3xl font-semibold text-[#3C3C3A] sm:text-4xl">
+          <h2 className="heading-h2 mt-2 text-[#3C3C3A]">
             {form.query_type === "quote" ? "Request a quote" : "Request a call back"}
           </h2>
-          <p className="mt-3 max-w-md text-sm leading-6 text-[#3C3C3A]/75">
+          <p className="body-md mt-3 max-w-md text-[#3C3C3A]/75">
             Tell us a little about your journey and our travel specialists will be in touch.
           </p>
         </div>
@@ -129,8 +129,8 @@ export default function EnquiryForm({
       {status === "success" ? (
         <div className="rounded-2xl bg-white p-7 text-center" aria-live="polite">
           <CheckCircle2 className="mx-auto text-[#3F8C57]" size={46} />
-          <h3 className="mt-4 font-display text-2xl font-semibold text-[#3C3C3A]">Thank you for getting in touch</h3>
-          <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-[#3C3C3A]/75">
+          <h3 className="heading-h3 mt-4 text-[#3C3C3A]">Thank you for getting in touch</h3>
+          <p className="body-md mx-auto mt-3 max-w-sm text-[#3C3C3A]/75">
             Your enquiry has been received. A member of our team will contact you shortly.
           </p>
           <button

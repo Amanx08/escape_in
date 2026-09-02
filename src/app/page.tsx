@@ -23,7 +23,7 @@ export default async function Home() {
         <AboutSection />
         <CollectionsSection categories={categories} />
         <TestimonialSection />
-        <TextBlockSection />
+        {/* <TextBlockSection /> */}
         <RecommendedToursSection packages={packages} categories={categories} />
       </main>
 

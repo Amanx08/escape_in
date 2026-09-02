@@ -6,18 +6,18 @@ import { CheckCircle2, ShieldCheck, Award } from "lucide-react";
 const differencePoints = [
   {
     icon: Award,
-    title: "Specialists in the extraordinary",
-    body: "We craft extraordinary award-winning tours to the world's most iconic places, backed by 29 British Travel Awards, including gold for Best Travel Company for Escorted Group Holidays 2025 and Feefo's Platinum Trusted status for consistently exceptional customer reviews.",
+    title: "Genuine local expertise",
+    body: "Our team is based in the Himalayas and has personally explored every destination we offer, ensuring authentic recommendations, insider knowledge, and thoughtfully designed journeys across India.",
   },
   {
     icon: CheckCircle2,
-    title: "Our price promise to you",
-    body: "You can relax knowing you are paying the best price for your holiday with our Price Promise. Our philosophy is simple - the earlier you book the better the offer you will receive.",
+    title: "Carefully Chosen Partners",
+    body: "We work directly with trusted hotels, guides, and transport providers across India, allowing us to deliver consistent quality, better value, and seamless travel experiences.",
   },
   {
     icon: ShieldCheck,
-    title: "100% financial protection",
-    body: "Book in the confidence your money is 100% safe. All India Escapes holidays are fully bonded by the Civil Aviation Authority (ATOL number 10913) or ABTOT (number 5427).",
+    title: "Trusted Around the World",
+    body: "Trusted by travellers from the UK, Australia, Europe, and beyond, we are associated with recognised tourism organisations and leading global travel platforms, ensuring confidence and reliability.",
   },
 ];
 
@@ -34,41 +34,30 @@ export default function AboutSection() {
             transition={{ duration: 0.7 }}
           >
             <h2
-              className="cs-section-heading "
+              className="text-6xl"
             >
-              The India Escapes difference...
+              The India escapes promise..
             </h2>
 
             {/* Trust badges row */}
             <div className="flex flex-wrap gap-4 mt-6">
               {/* ABTOT */}
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2">
-                <div className="w-8 h-8 bg-blue-800 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-black">A</span>
-                </div>
-                <span className="text-xs font-semibold text-gray-600">ABTOT</span>
+              <div className="p-2">
+              <img src="/images/Ministry_of_Commerce_logo.svg" alt="MOC" className="h-15 object-cover" />
               </div>
-              {/* ATOL */}
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2">
-                <div className="w-8 h-8 bg-amber-500 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-black">A</span>
-                </div>
-                <span className="text-xs font-semibold text-gray-600">ATOL</span>
+
+              <div className="p-2">
+              <img src="/images/life.png" alt="MOC" className="h-15 object-cover" />
               </div>
-              {/* AITO */}
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2">
-                <div className="w-8 h-8 bg-navy-800 border-2 border-blue-800 rounded flex items-center justify-center">
-                  <span className="text-blue-800 text-xs font-black">A</span>
-                </div>
-                <span className="text-xs font-semibold text-gray-600">AITO</span>
+
+              <div className="p-2">
+              <img src="/images/nidhi.png" alt="MOC" className="h-15 object-cover" />
               </div>
-              {/* BTA */}
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2">
-                <div className="w-8 h-8 bg-amber-600 rounded flex items-center justify-center">
-                  <Award size={16} className="text-white" />
-                </div>
-                <span className="text-xs font-semibold text-gray-600">BTA Gold</span>
+
+              <div className="p-2">
+              <img src="/images/hp-tourism.png" alt="MOC" className="h-15 object-cover" />
               </div>
+           
             </div>
           </motion.div>
 
@@ -90,7 +79,7 @@ export default function AboutSection() {
                   <h3 className="font-semibold text-gray-800 mb-1.5 text-2xl font-display">
                     {point.title}
                   </h3>
-                  <p className="text-md text-gray-600 leading-relaxed">
+                  <p className="text-md text-gray-600 leading-relaxed" style={{ fontSize: '15px' }}>
                     {point.body}
                   </p>
                 </div>

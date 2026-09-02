@@ -55,7 +55,7 @@ export default function AwardsSection() {
             {awardsData.heading}
           </h2>
           
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10 pt-5">
+          {/* <div className="flex flex-wrap justify-center gap-6 md:gap-10 pt-5">
             {awardsData.awards.map((award, i) => (
               <motion.div
                 key={award.id}
@@ -68,9 +68,9 @@ export default function AwardsSection() {
                 <AwardBadge name={award.name} detail={award.detail} />
               </motion.div>
             ))}
-          </div>
+          </div> */}
 
-          <p className="text-md text-gray-500 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-500 mt-5 mx-auto leading-relaxed">
             {awardsData.description}
           </p>
         </motion.div>

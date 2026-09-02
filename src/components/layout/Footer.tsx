@@ -15,9 +15,9 @@ export default function Footer() {
   return (
     <footer className="bg-white text-gray-900">
       {/* Book with Confidence Banner */}
-      <div className="bg-[#fde3d5] rounded-[12px] m-5 py-5">
+      <div className="bg-[#fde3d5] rounded-[12px] m-5 py-5" data-banner="true">
         <div className="fw-container-custom flex items-center justify-between py-3 px-6 sm:px-8">
-          <p className="text-2xl font-medium text-[#d43510]" style={{ fontFamily: "var(--font-playfair)" }}>
+          <p className="heading-h3 text-[#d43510]">
             Our Book with Confidence Guarantee
           </p>
           <Link
@@ -36,10 +36,10 @@ export default function Footer() {
         {/* Brochure CTA Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex-1">
-            <h2 className="font-playfair text-4xl mb-3">
+            <h2 className="heading-h2">
               Plan your India journey with {siteData.name}
             </h2>
-            <p className="text-gray-300 text-lg">
+            <p className="body-lg text-gray-300">
               Speak with our Himachal-based specialists about private journeys and handpicked stays.
             </p>
           </div>

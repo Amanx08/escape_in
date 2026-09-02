@@ -3,46 +3,86 @@
   "subheading": "India Escapes uses Feefo, the global feedback engine, to gather genuine and independently verified reviews.",
   "poweredBy": "Feefo",
   "viewAllHref": "/about-us/customer-reviews",
-  "reviews": [
+   "reviews": [
     {
       "id": 1,
-      "title": "Pleasant and professional",
-      "author": "Jacqui Dalton",
+      "title": "Best trusted north india operator",
+      "author": "Dream63176979047",
       "rating": 5,
-      "date": "March 2025",
-      "text": "Very pleasant and professional service. The team were incredibly helpful in planning our trip and answered all our questions promptly. Would highly recommend India Escapes to anyone looking for a high-quality escorted tour."
+      "date": "May 2026",
+      "text": "Booked Himachal trip with trusted vendor for Himachal. Great experience and reliable service."
     },
     {
       "id": 2,
-      "title": "Excellent service thank you",
-      "author": "Stephen Quelch",
-      "rating": 5,
-      "date": "February 2025",
-      "text": "Excellent service from start to finish. The booking process was smooth and straightforward. Our tour guide was knowledgeable and friendly. An absolutely wonderful experience that exceeded all expectations."
+      "title": "Good experience",
+      "author": "Journey827984",
+      "rating": 4,
+      "date": "April 2026",
+      "text": "Toy train ride Shimla to Tara Devi. Advertised as a 4-hour guided tour but the guide was present only briefly before the train journey. The train ride lasted around 45 minutes and seating arrangements were disappointing. We enjoyed the train ride and visit to Tara Devi Temple, but the experience did not match the advertised description."
     },
     {
       "id": 3,
-      "title": "Great customer service",
-      "author": "Paul Wilton",
+      "title": "Trusted india tour operator",
+      "author": "Adventure29819051386",
       "rating": 5,
-      "date": "January 2025",
-      "text": "Brilliant customer service throughout the entire holiday planning process. The team went above and beyond to make sure everything was perfect. Our trip to Japan was absolutely magical - every detail was taken care of."
+      "date": "March 2026",
+      "text": "Trusted tour operator for India tours. Professional arrangements and dependable service."
     },
     {
       "id": 4,
-      "title": "Amazing Service",
-      "author": "Fiona May",
+      "title": "A trip on the toy train viceroy building temple and Church in Shimla",
+      "author": "Zoe G",
       "rating": 5,
-      "date": "December 2024",
-      "text": "Amazing service from beginning to end. From the initial enquiry to arriving back home, India Escapes made everything effortless. The Sri Lanka tour was an unforgettable experience. We have already booked our next adventure!"
+      "date": "March 2026",
+      "text": "We had a great experience. Ranish was knowledgeable and ensured everything went smoothly. A fabulous day exploring Shimla."
     },
     {
       "id": 5,
-      "title": "Review of the planning and booking process first class",
-      "author": "Margaret Thompson",
+      "title": "Wonderful North India tour with India Escapes",
+      "author": "Wanderer40657769846",
       "rating": 5,
-      "date": "November 2024",
-      "text": "The planning and booking process was first class. Every query was dealt with quickly and efficiently. Our tour of Australia was simply spectacular - the itinerary was perfectly balanced between guided excursions and free time."
+      "date": "December 2025",
+      "text": "Fantastic North India tour with well-planned hotels, transportation, sightseeing, and support. Special thanks to Mr. Sahil Shyam for arranging the package according to our needs. Highly recommended for anyone planning a holiday in India."
+    },
+    {
+      "id": 6,
+      "title": "Amazing trip",
+      "author": "Bhawna T",
+      "rating": 5,
+      "date": "December 2025",
+      "text": "We booked our Spiti Valley tour with India Escapes and had an amazing experience. Excellent coordination by Bhawna Thakur and the entire team. Highly recommended for future trips."
+    },
+    {
+      "id": 7,
+      "title": "Shimla Tour",
+      "author": "Kazuma M",
+      "rating": 5,
+      "date": "November 2025",
+      "text": "An unforgettable experience with Mr. Dinesh, who was knowledgeable and accommodating. His guidance made our visit meaningful and enjoyable. We also appreciate the driver for safe transportation."
+    },
+    {
+      "id": 8,
+      "title": "Highly recommended! Book ASAP!",
+      "author": "Guby K",
+      "rating": 5,
+      "date": "November 2025",
+      "text": "Highly recommended. The tour guide Mr. Kaku and the India Escapes team were kind and professional. The toy train journey was breathtaking and a must-do experience in Himachal Pradesh."
+    },
+    {
+      "id": 9,
+      "title": "Hoping for some more trips with India Escapes.",
+      "author": "Ritesh K",
+      "rating": 5,
+      "date": "November 2025",
+      "text": "A memorable educational school trip to Amritsar. India Escapes managed everything beautifully, including hotel arrangements and activities. Strongly recommended."
+    },
+    {
+      "id": 10,
+      "title": "Amazing",
+      "author": "Fearless08756190181",
+      "rating": 5,
+      "date": "November 2025",
+      "text": "Amazing experience with lots of fun and beautiful memories. Thank you for the wonderful hospitality and a memorable trip."
     }
   ]
 }

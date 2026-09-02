@@ -67,11 +67,11 @@ export default function HeroSection() {
             className="max-w-4xl w-full mx-auto "
           >
             <h1
-              className="font-display text-4xl sm:text-5xl lg:text-[64px] font-medium text-white mb-2 lg:mb-4 leading-tight drop-shadow-lg"
+              className="heading-h1 text-white mb-2 lg:mb-4 drop-shadow-lg"
             >
               {heroData.heading}
             </h1>
-            <p className="text-lg sm:text-xl text-white/90 mb-5 font-medium drop-shadow-md">
+            <p className="subheading-lg text-white/90 mb-5 drop-shadow-md">
               {heroData.subheading}
             </p>
 
@@ -82,7 +82,7 @@ export default function HeroSection() {
               transition={{ delay: 0.6 }}
               className="flex items-center justify-center gap-3 mt-5 lg:hidden"
             >
-              <span className="font-bold text-white text-xl tracking-tight">Google</span>
+              <span className="font-bold text-white text-xl tracking-tight">Tripadvisor</span>
               <div className="flex items-center gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={18} fill="#fbbf24" stroke="none" />
@@ -176,7 +176,7 @@ export default function HeroSection() {
               transition={{ delay: 0.6 }}
               className="flex items-center justify-center gap-3 mt-5"
             >
-              <span className="font-bold text-white text-3xl tracking-tight">Google</span>
+              <span className="font-bold text-white text-3xl tracking-tight">Tripadvisor</span>
               <div className="flex items-center gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={22} fill="#fbbf24" stroke="none" />
