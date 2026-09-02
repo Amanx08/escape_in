@@ -212,14 +212,28 @@ export default function Footer() {
 
             {/* Trust Badges and Payment */}
             <div className="flex flex-col sm:flex-row items-center justify-end gap-4">
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <span className="text-xs font-bold uppercase text-gray-600">India Escapes</span>
+              </div> */}
+              <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
+              {/* ABTOT */}
+              <div className="p-2">
+              <img src="/images/Ministry_of_Commerce_logo.svg" alt="MOC" className="h-10 object-cover" />
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-blue-600">VISA</span>
-                <span className="text-xs font-bold text-red-600">●</span>
-                <span className="text-xs font-bold text-yellow-500">●</span>
+
+              <div className="p-2">
+              <img src="/images/life.png" alt="MOC" className="h-10 object-cover" />
               </div>
+
+              <div className="p-2">
+              <img src="/images/nidhi.png" alt="MOC" className="h-10 object-cover" />
+              </div>
+
+              <div className="p-2">
+              <img src="/images/hp-tourism.png" alt="MOC" className="h-10 object-cover" />
+              </div>
+           
+            </div>
             </div>
           </div>
         </div>

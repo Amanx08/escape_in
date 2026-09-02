@@ -36,6 +36,8 @@ export default async function DestinationsPage() {
           </div>
         </section> 
 
+        
+
         <section className="container-custom py-20">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="cs-section-heading">India Escapes destinations</h2>

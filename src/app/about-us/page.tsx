@@ -5,42 +5,42 @@ import Link from "next/link";
 
 const featureCards = [
   {
-    title: "Escorted Touring Experience",
+    title: "Bespoke touring experiance",
     description:
-      "Every tour is led by an expert travel director, with local guides and seamless logistics arranged so you can enjoy the journey rather than manage it.",
+      "Every journey is thoughtfully tailored to your interests, combining authentic local experiences, carefully selected accommodations, and seamless travel designed around your preferred pace.",
     image: "/images/dest-india.jpg",
   },
   {
     title: "So Much Included",
     description:
-      "From premium coach travel and hand-picked hotels to authentic meals and immersive excursions, we include more of the moments that matter.",
+      "Enjoy exceptional value with handpicked hotels, private transport, experienced local guides, selected meals, sightseeing, and dedicated support included throughout your holiday.",
     image: "/images/dest-japan.jpg",
   },
   {
     title: "Freedom & Flexibility",
     description:
-      "Carefully planned itineraries let you explore with confidence, while optional freedom days give you time to discover at your own pace.",
+      "Travel with the confidence of a well-planned itinerary while enjoying the flexibility to personalise experiences and explore destinations at your own pace.",
     image: "/images/dest-srilanka.jpg",
   },
 ];
 
 const awardsCards = [
   {
-    title: "Award-winning service",
+    title: "Dedicated travel expert",
     description:
-      "Recognised across the travel industry for quality and personal care, our awards reflect our dedication to exceptional holidays.",
+      "From your first enquiry until you return home, your personal travel specialist provides expert advice, personalised planning, and dedicated support every step of the way.",
     image: "/images/dest-australia.jpg",
   },
   {
-    title: "Trusted by travellers",
+    title: "Trusted service ",
     description:
-      "Our guests return year after year because they know every detail will be taken care of with warmth and expertise.",
+      "With recognised industry affiliations, excellent traveller reviews, and years of local expertise, we deliver reliable, transparent, and personalised service you can trust.",
     image: "/images/dest-china.jpg",
   },
   {
-    title: "Experienced travel experts",
+    title: "Travel with locals",
     description:
-      "Our team combines global knowledge with local insight so you can explore beautiful destinations with confidence.",
+      "Experience India through local eyes with destination experts, trusted guides, and genuine cultural encounters that reveal the country's authentic beauty beyond the guidebooks.",
     image: "/images/dest-india.jpg",
   },
 ];
@@ -83,34 +83,29 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="py-20 bg-white">
-          <div className="container-custom max-w-5xl mx-auto text-center">
+        <section className="py-10 bg-white">
+          <div className="container-custom max-w-7xl mx-auto text-center">
             <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4">Why we exist</p>
-            <h2 className="cs-section-heading">Meaningful travel, thoughtfully designed.</h2>
+            <h2 className="cs-section-heading">Who We Are</h2>
             <div className="mt-8 space-y-6 text-gray-600 text-base leading-relaxed">
               <p>
-                At India Escapes, we believe life’s greatest journeys deserve to be done properly. We create once-in-a-lifetime tours that inspire, connect and stay with you forever.
-                Each itinerary is carefully designed to reveal the world’s most iconic destinations, brought to life by expert tour managers and local partners who understand every detail matters.
-                Our customers enjoy more than a holiday. They experience meaningful travel that builds connections, celebrates discovery and leaves lasting memories.
+                India Escapes is a locally owned and operated destination specialist, creating exceptional journeys across India for travellers from around the world. Based in the Himalayas of Himachal Pradesh, we design carefully curated holidays that combine authentic experiences, comfortable accommodation, and seamless travel.
+                Unlike many international tour operators, we don't simply sell destinations—we live them. Every itinerary is built from first-hand knowledge, trusted local partnerships, and years of on-ground experience, allowing you to discover India with confidence, comfort, and authenticity. Whether you're exploring the vibrant cities of Rajasthan, the peaceful Himalayan foothills, or the dramatic landscapes of SpitiValley, our experienced team is committed to creating journeys that are personal, meaningful, and unforgettable.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="container-custom py-20">
+        <section className="container-custom py-10">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] items-center">
             <div className="space-y-8">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-500">Our story</p>
-              <h2 className="cs-section-heading">Built by people who love guiding holidays.</h2>
+              {/* <p className="text-sm uppercase tracking-[0.3em] text-gray-500">Our story</p> */}
+              <h2 className="cs-section-heading">Our story</h2>
               <div className="space-y-5 text-gray-600 leading-relaxed">
                 <p>
-                  Our story began with a simple belief: escorted touring should be more flexible, more personal and more rewarding. We wanted to create journeys that feel curated and effortless from the moment you book.
-                </p>
-                <p>
-                  Today, our values remain unchanged. We bring together thoughtful service, expert local knowledge and meaningful experiences so that every trip feels both memorable and easy.
-                </p>
-                <p>
-                  From inspirational Freedom Days to carefully chosen hotels and immersive cultural experiences, we design every detail around what makes travel truly special.
+                  India Escapes was founded with one simple vision—to help travellers experience the real India through the eyes of local experts. What began as a passion for showcasing the beauty of Himachal Pradesh has grown into a trusted travel company designing tailor-made and small group journeys across the country. We believe the best travel experiences come from genuine local knowledge, honest advice, and carefully selected partners.
+                  Today, we work directly with hotels, experienced guides, transport providers, and local communities throughout India. By removing unnecessary middlemen, we maintain higher service standards, better value, and greater flexibility for our guests.
+                  Our success is built on trust, long-term relationships, and a genauine passion for sharing India's incredible culture, history landscapes, and hospitality.
                 </p>
               </div>
             </div>
@@ -124,13 +119,13 @@ export default function AboutUsPage() {
                 className="object-cover w-full h-full"
               />
               <div className="absolute inset-0 bg-black/30" />
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* <div className="absolute inset-0 flex items-center justify-center">
                 <div className="rounded-full bg-white/95 p-5 shadow-lg border border-white/70">
                   <div className="w-16 h-16 rounded-full bg-[#e8461a] flex items-center justify-center text-white text-2xl">
                     ▶
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-300 mb-2">Watch our story</p>
                 <h3 className="text-3xl font-semibold text-white">Discover how we create extraordinary journeys.</h3>
@@ -169,14 +164,24 @@ export default function AboutUsPage() {
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500">Meet the team</p>
               <h2 className="cs-section-heading">We are travel specialists, not just operators.</h2>
               <p className="text-gray-600 leading-relaxed text-base max-w-2xl">
-                Our team of travel experts work behind the scenes to create unforgettable holidays. Every itinerary is supported by passionate consultants, knowledgeable managers and trusted local partners.
+              Behind every India Escapes holiday is a passionate team
+of travel specialists dedicated to creating exceptional
+experiences.
+
+Based in Himachal Pradesh, our team has personally
+travelled the destinations we recommend. From designing
+itineraries and selecting hotels to providing support
+throughout your holiday, we combine local expertise with
+personalised service to ensure every journey runs
+smoothly.
+
+When you travel with India Escapes, you're not speaking
+to a call centre—you are working directly with destination
+specialists who know India inside and out.
               </p>
-              <p className="text-gray-600 leading-relaxed text-base max-w-2xl">
-                From planning to departure, we are here to make your journey seamless, inspiring and genuinely memorable.
-              </p>
-              <Link href="/about-us/meet-the-team" className="btn-primary inline-flex mt-2">
+              {/* <Link href="/about-us/meet-the-team" className="btn-primary inline-flex mt-2">
                 Meet the team
-              </Link>
+              </Link> */}
             </div>
             <div className="overflow-hidden rounded-[32px] shadow-[0_25px_80px_rgba(15,23,42,0.12)]">
               <Image
@@ -191,11 +196,21 @@ export default function AboutUsPage() {
         </section>
 
         <section className="py-20 bg-[#f4f1eb]">
-          <div className="container-custom max-w-4xl mx-auto text-center">
+          <div className="container-custom max-w-7xl mx-auto text-center">
             <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4">Specialists in the extraordinary</p>
             <h2 className="cs-section-heading">Crafting journeys that feel effortless and unforgettable.</h2>
             <p className="mt-6 text-gray-700 leading-relaxed text-base">
-              Great customer service is at the heart of everything we do. Our holidays are carefully designed to exceed expectations while letting you travel with freedom and confidence.
+              We specialise in journeys that go beyond the ordinary.
+
+Whether it's exploring the remote monasteries of Spiti Valley, travelling aboard the UNESCO-listed Kalka–Shimla Toy Train,
+staying in heritage hotels, or discovering hidden villages in the Himalayas, we create experiences that reveal the true character
+of India.
+
+Every journey is carefully designed to balance iconic landmarks with authentic local experiences, giving you the opportunity to
+connect with India's culture, people, and landscapes in a meaningful way.
+
+Through trusted local partnerships, personalised planning, and dedicated on-ground support, we transform great holidays into
+unforgettable memories.
             </p>
           </div>
         </section>
@@ -206,14 +221,24 @@ export default function AboutUsPage() {
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500">Refer a friend</p>
               <h2 className="cs-section-heading">Share the joy of travel and receive rewards.</h2>
               <p className="text-gray-600 leading-relaxed text-base max-w-2xl">
-                As a thank you to our valued customers, our Refer a Friend programme rewards both you and your friend when they book with India Escapes.
+               Behind every India Escapes holiday is a passionate team
+of travel specialists dedicated to creating exceptional
+experiences.
+
+Based in Himachal Pradesh, our team has personally
+travelled the destinations we recommend. From designing
+itineraries and selecting hotels to providing support
+throughout your holiday, we combine local expertise with
+personalised service to ensure every journey runs
+smoothly.
+
+When you travel with India Escapes, you're not speaking
+to a call centre—you are working directly with destination
+specialists who know India inside and out.
               </p>
-              <p className="text-gray-600 leading-relaxed text-base max-w-2xl">
-                There’s no limit to how many friends you can refer — we’re happy to send as many gift cards as required to make your next holiday even better.
-              </p>
-              <Link href="/refer-a-friend" className="btn-outline inline-flex">
+              {/* <Link href="/refer-a-friend" className="btn-outline inline-flex">
                 Learn more
-              </Link>
+              </Link> */}
             </div>
 
             <div className="overflow-hidden rounded-[32px] relative shadow-[0_25px_80px_rgba(15,23,42,0.12)]">
@@ -256,7 +281,7 @@ export default function AboutUsPage() {
             </div>
           </div>
         </section>
-
+{/* 
         <section className="container-custom py-20">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <div className="space-y-8">
@@ -319,7 +344,7 @@ export default function AboutUsPage() {
               </button>
             </form>
           </div>
-        </section>
+        </section> */}
       </main>
 
       <Footer />

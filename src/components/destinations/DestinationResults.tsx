@@ -52,7 +52,7 @@ export default function DestinationResults({ destinations }: { destinations: rea
                 <h3 className="text-2xl font-semibold text-gray-900">{destination.name}</h3>
                 <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#e8461a]">Offer</span>
               </div>
-              <p className="mb-5 text-sm leading-relaxed text-gray-600">{destination.description}</p>
+              {/* <p className="mb-5 text-sm leading-relaxed text-gray-600">{destination.description}</p> */}
               <div className="flex items-center justify-between gap-4">
                 <span className="text-sm font-semibold text-gray-700">{destination.offer}</span>
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-[#e8461a] transition-colors duration-200 group-hover:bg-[#e8461a] group-hover:text-white">→</span>

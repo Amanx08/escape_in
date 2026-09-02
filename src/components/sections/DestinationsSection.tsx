@@ -67,7 +67,7 @@ export default function DestinationsSection({ destinations }: { destinations: De
           transition={{ delay: 0.5 }}
           className="flex justify-center mt-10"
         >
-          <Link href={ctaHref} className="bg-[#3a6a4c] hover:bg-[#2c5339] text-white px-7 py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-colors flex items-center gap-2 focus:outline-none focus:ring-2 transition-colors">
+          <Link href={ctaHref} className="bg-[#3a6a4c] hover:bg-[#2c5339]  text-white px-7 py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-colors flex items-center gap-2 focus:outline-none focus:ring-2">
             {ctaLabel}
             <ArrowRight size={16} />
           </Link>

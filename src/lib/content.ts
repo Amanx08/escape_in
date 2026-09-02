@@ -60,6 +60,7 @@ export interface PackageRecord {
   gallery: string[];
   categories: string[];
   destinations: string[];
+  destinationIds: string[];
   locations: string[];
   activities: string[];
   itinerary: { day: string; description: string }[];
@@ -268,7 +269,7 @@ function categoryFallbackRecords(): CategoryRecord[] {
 function packageFallbackRecords(): PackageRecord[] {
   return toursFallback.tours
     .filter((item) => /india|himachal/i.test(item.country))
-    .map((item) => ({ id: String(item.id), title: item.title, slug: item.href.split("/").pop() || slugify(item.title), country: item.country, href: item.href, summary: item.highlights.join(" "), image: item.image, priceFrom: item.priceFrom, duration: item.duration, highlights: item.highlights, departing: item.departing, pricePer: item.pricePer, badge: item.badge, types: item.types, countrySlug: item.href.split("/").filter(Boolean)[0] || slugify(item.country), source: "fallback" as const, overview: item.highlights.join(" "), gallery: [item.image], categories: item.types, destinations: [item.country], locations: [], activities: [], itinerary: [], inclusions: [], exclusions: [], expenses: [], importantInformation: [], priceDetails: [{ label: "Tour price", value: item.priceFrom }], departureDates: [item.departing] }));
+    .map((item) => ({ id: String(item.id), title: item.title, slug: item.href.split("/").pop() || slugify(item.title), country: item.country, href: item.href, summary: item.highlights.join(" "), image: item.image, priceFrom: item.priceFrom, duration: item.duration, highlights: item.highlights, departing: item.departing, pricePer: item.pricePer, badge: item.badge, types: item.types, countrySlug: item.href.split("/").filter(Boolean)[0] || slugify(item.country), source: "fallback" as const, overview: item.highlights.join(" "), gallery: [item.image], categories: item.types, destinations: [item.country], destinationIds: [], locations: [], activities: [], itinerary: [], inclusions: [], exclusions: [], expenses: [], importantInformation: [], priceDetails: [{ label: "Tour price", value: item.priceFrom }], departureDates: [item.departing] }));
 }
 
 export async function getDestinations() {
@@ -340,7 +341,7 @@ export async function getPackages() {
     const country = text(record, "country", "region") || "India";
     const priceFrom = text(record, "offer_price", "price", "price_from", "priceFrom") || "Enquire for price";
     const departing = text(record, "departing", "departure_dates");
-    return { id, title, slug, country, href: slug.startsWith("/") ? slug : `/${slugify(country)}-tours/${slug}`, summary: plainText(text(record, "description", "summary", "short_description")), image, priceFrom, duration: text(record, "duration", "days"), highlights: stringArray(record.highlights), departing, pricePer: text(record, "price_per", "pricePer") || "Per person", badge: text(record, "badge") || null, types: categories, countrySlug: `${slugify(country)}-tours`, source: "appwrite" as const, overview: plainText(text(record, "description", "summary")), gallery: [image, ...images.filter((item) => item !== image)], categories, destinations, locations: stringArray(record.locations), activities: stringArray(record.activities), itinerary: [], inclusions: [], exclusions: [], expenses: [], importantInformation: [], priceDetails: [{ label: "Tour price", value: priceFrom }], departureDates: departing ? [departing] : [] };
+    return { id, title, slug, country, href: slug.startsWith("/") ? slug : `/${slugify(country)}-tours/${slug}`, summary: plainText(text(record, "description", "summary", "short_description")), image, priceFrom, duration: text(record, "duration", "days"), highlights: stringArray(record.highlights), departing, pricePer: text(record, "price_per", "pricePer") || "Per person", badge: text(record, "badge") || null, types: categories, countrySlug: `${slugify(country)}-tours`, source: "appwrite" as const, overview: plainText(text(record, "description", "summary")), gallery: [image, ...images.filter((item) => item !== image)], categories, destinations, destinationIds, locations: stringArray(record.locations), activities: stringArray(record.activities), itinerary: [], inclusions: [], exclusions: [], expenses: [], importantInformation: [], priceDetails: [{ label: "Tour price", value: priceFrom }], departureDates: departing ? [departing] : [] };
   });
 }
 

@@ -99,14 +99,14 @@ export default async function TourTypePage({ params }: PageProps) {
                   <h3 className="text-2xl font-semibold text-gray-900 mb-4">
                     <Link href={`/${tour.countrySlug}/${tour.slug}`}>{tour.title}</Link>
                   </h3>
-                  <ul className="mb-6 space-y-2 text-gray-600">
+                  {/* <ul className="mb-6 space-y-2 text-gray-600">
                       {tour.highlights.map((highlight: string) => (
                       <li key={highlight} className="flex items-start gap-2">
                         <span className="mt-1 text-primary-500">•</span>
                           <span>{String(highlight)}</span>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <div className="text-2xl font-bold text-gray-900">{tour.priceFrom}</div>
