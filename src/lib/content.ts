@@ -411,26 +411,16 @@ export async function getPackageBySlug(slug: string) {
   // );
 
   const related = await Promise.all(
-  collections.map(async (collection) => {
-   let documents: any[] | null = [];
-
-    try {
-      documents = await readCollection(collection, [
-        Query.equal("package_id", packageItem.id),
-      ]);
-    } catch {}
-
-    if (!documents?.length) {
+    collections.map(async (collection) => {
       try {
-        documents = await readCollection(collection, [
-          Query.equal("packageId", packageItem.id),
-        ]);
-      } catch {}
-    }
-
-    return [collection, documents] as const;
-  })
-);
+        const documents = await readCollection(collection);
+        return [collection, documents] as const;
+      } catch (error) {
+        console.warn(`Failed to fetch ${collection}:`, error);
+        return [collection, null] as const;
+      }
+    })
+  );
 
   const records = new Map(related);
   const getRecords = (collection: string) => records.get(collection) || [];
