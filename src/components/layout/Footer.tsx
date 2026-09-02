@@ -59,7 +59,7 @@ export default function Footer() {
 
         <div className="flex flex-col lg:flex-row gap-0 md:gap-12 lg:gap-0 lg:items-start lg:justify-between">
 
-          <div className="fw-container-custom py-5">
+          <div className="fw-container-custom pt-5 md:py-5">
 
 
            
@@ -76,8 +76,8 @@ export default function Footer() {
                 </ul>
               </div> */}
                    {/* Logo and Awards */}
-            <div className=" flex flex-col sm:flex-row items-center justify-start gap-8">
-              <img src="/images/main_weblogo.svg" alt={`${siteData.name} Logo`} className="h-22" />
+            <div className=" flex flex-col sm:flex-row items-start pt-5 md-pt-0 justify-start gap-8">
+              <img src="/images/main_weblogo.svg" alt={`${siteData.name} Logo`} className="h-18" />
               {/* <img src="/images/India Escapes red on white.svg" alt={`${siteData.name} Logo`} className="h-52" /> */}
             </div>
 
@@ -87,7 +87,7 @@ export default function Footer() {
                 <ul className="space-y-2.5 text-[16px]">
                   <li><Link href="/destinations" className="text-sm text-gray-300 hover:text-white">Destinations</Link></li>
                   <li><Link href="/tour-types" className="text-sm text-gray-300 hover:text-white">Tour Types</Link></li>
-                  <li><Link href="/blog" className="text-sm text-gray-300 hover:text-white">Travel journal</Link></li>
+                  {/* <li><Link href="/blog" className="text-sm text-gray-300 hover:text-white">Travel journal</Link></li> */}
                 </ul>
               </div>
 
@@ -176,7 +176,7 @@ export default function Footer() {
               Subscribe
               <ArrowRight size={14} />
             </button>
-            <p className="text-xs text-gray-400 leading-5">
+            <p className="text-xs text-gray-400 leading-5 pb-5">
               In accordance with the latest GDPR data regulations, you can unsubscribe from our emails at any time. You can read our privacy policy that provides further information about how we use personal data.
             </p>
           </div>
@@ -186,7 +186,7 @@ export default function Footer() {
 
 
       {/* Bottom Bar */}
-      <div className="bg-white border-t border-gray-200">
+      <div className="bg-white border-t border-gray-200 px-5 pt-5">
         <div className="fw-container-custom py-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             {/* Country Selector */}
