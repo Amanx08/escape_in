@@ -9,7 +9,7 @@ import type { CategoryRecord } from "@/lib/content";
 export default function CollectionsSection({ categories }: { categories: CategoryRecord[] }) {
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white px-5 md:px-0">
       <div className="fw-container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

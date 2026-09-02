@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-white text-gray-900">
       {/* Book with Confidence Banner */}
-      <div className="bg-[#fde3d5] rounded-[12px] m-5 py-5" data-banner="true">
+      <div className="bg-[#fde3d5] rounded-[12px] m-5 py-5 px-5" data-banner="true">
         <div className="fw-container-custom flex items-center justify-between py-3 px-6 sm:px-8">
           <p className="heading-h3 text-[#d43510] text-lg md:text-2xl font-bold mb-0 w-50 md:w-100 text-wrap md:text-nowrap">
             Our Book with Confidence Guarantee

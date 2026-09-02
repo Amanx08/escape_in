@@ -15,7 +15,7 @@ export default function DestinationsSection({ destinations }: { destinations: De
   const row2 = destinations.slice(4, 7);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white px-5 md:px-0">
       <div className="fw-container-custom d-flex align-items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

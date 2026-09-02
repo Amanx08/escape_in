@@ -82,7 +82,7 @@ export default function HeroSection() {
               transition={{ delay: 0.6 }}
               className="flex items-center justify-center gap-3 mt-5 lg:hidden"
             >
-              <span className="font-bold text-white text-xl tracking-tight">Tripadvisor</span>
+              <span className="font-bold text-white text-sm tracking-tight">Tripadvisor</span>
               <div className="flex items-center gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={18} fill="#fbbf24" stroke="none" />
@@ -176,7 +176,7 @@ export default function HeroSection() {
               transition={{ delay: 0.6 }}
               className="flex items-center justify-center gap-3 mt-5"
             >
-              <span className="font-bold text-white text-3xl tracking-tight">Tripadvisor</span>
+              <span className="font-bold text-white text-2xl tracking-tight">Tripadvisor</span>
               <div className="flex items-center gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={22} fill="#fbbf24" stroke="none" />
