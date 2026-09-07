@@ -14,6 +14,7 @@ export default function TourPage({ tour }) {
   //   description: item.description || tour?.overview || "This itinerary will be updated soon.",
   // }));
 
+
   const itineraryDays = (
     tour?.itinerary?.length
       ? tour.itinerary
@@ -23,12 +24,14 @@ export default function TourPage({ tour }) {
 
     try {
       parsed = JSON.parse(item.description);
+      console.log(parsed)
     } catch {
       parsed = {};
     }
 
     return {
       ...item,
+      title: item.title || item.day || `Day ${index + 1}`,
       ...parsed,
       id: String(index + 1),
     };
@@ -48,6 +51,25 @@ export default function TourPage({ tour }) {
     60
   );
   const title = tour?.title || "Tour";
+  const highlightItems = tour?.highlights?.length ? tour.highlights.map((text, index) => ({ text, image: galleryItems[index] || heroImage })) : [
+    { text: "Four-night Mekong River cruise from Vietnam to Cambodia", image: "https://cdn.distantjourneys.co.uk/a517dbdf-c632-4263-bf27-b36800852e32_Original%20file.jpg?apr_optimization=true&quality=75&width=416&height=234&fit=crop&format=webp&precrop=true" },
+    { text: "Two-night cruise around Ha Long Bay and Lan Ha Bay", image: "https://cdn.distantjourneys.co.uk/3af5d31c-2dc7-4ac6-b9e2-b39900d02c4f_Original%20file.jpg?apr_optimization=true&quality=75&width=416&height=234&fit=crop&format=webp&precrop=true" },
+    { text: "Explore the temples of Angkor Wat", image: "https://cdn.distantjourneys.co.uk/21c4ccc2-837b-4a6d-9698-b39900d0c9c5_Original%20file.jpg?apr_optimization=true&quality=75&width=416&height=234&fit=crop&format=webp&precrop=true" },
+  ];
+  const inclusionItems = tour?.inclusionsDetails?.length ? tour.inclusionsDetails.map((item) => ["✓", item.title, item.description]) : [
+    ["✦", "Unforgettable experiences", "City sightseeing and cultural experiences throughout the itinerary."],
+    ["✈", "Flights with leading scheduled airlines", "Return economy flights and all included domestic flights."],
+    ["⌂", "Carefully selected hotels", "Hotels in great locations with applicable taxes."],
+    ["♨", "Meals included", "Daily breakfasts and selected lunches and dinners."],
+  ];
+  const accommodation = tour?.accommodations?.[0];
+  const informationItems = tour?.importantInformation?.length ? tour.importantInformation : [
+    { title: "Deposit", description: "Speak to our travel specialists for the latest deposit information." },
+    { title: "Flight upgrades", description: "Ask us about cabin upgrades and regional departure options." },
+    { title: "Visa information", description: "We will provide practical advice for your chosen departure." },
+  ];
+  const reviewItems = tour?.reviews?.length ? tour.reviews : [];
+  const displayedGallery = galleryItems.length ? galleryItems : [heroImage].filter(Boolean);
 
   const [showFullSummary, setShowFullSummary] = useState(false);
   const [selectedDay, setSelectedDay] = useState(0);
@@ -55,7 +77,7 @@ export default function TourPage({ tour }) {
   const [modalLabel, setModalLabel] = useState("Request a brochure");
   const [freedom, setFreedom] = useState("Hanoi");
 
-  const activeDay = itineraryDays[selectedDay] ?? itineraryDays[0];
+  const activeDay = itineraryDays[selectedDay] ?? itineraryDays[0] ?? { title: "Overview", description: tour?.overview || "This itinerary will be updated soon." };
 
   const freedomMap = {
     Hanoi: {
@@ -96,7 +118,7 @@ export default function TourPage({ tour }) {
             {/* Background Image */}
             <div className="absolute inset-0">
               <Image
-                src='https://cdn.distantjourneys.co.uk/2f2e5929-e030-4c9f-a2dc-b21100d15a31/AdobeStock_182963760_Original%20file.jpeg?apr_optimization=true&quality=75&width=720&height=405&fit=crop&format=webp&precrop=true'
+                src={heroImage || 'https://cdn.distantjourneys.co.uk/2f2e5929-e030-4c9f-a2dc-b21100d15a31/AdobeStock_182963760_Original%20file.jpeg?apr_optimization=true&quality=75&width=720&height=405&fit=crop&format=webp&precrop=true'}
                 alt="India Escapes - For life's greatest journeys"
                 fill
                 priority
@@ -125,10 +147,10 @@ export default function TourPage({ tour }) {
                 </h1>
 
                 <div className="hero-actions">
-                  <button type="button" className="btn fill" onClick={() => openModal("Request a brochure")}>
+                  <button type="button" className="border-[#f24822] px-7 py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-colors flex items-center gap-2 focus:outline-none focus:ring-2" onClick={() => openModal("Request a brochure")}>
                     Request a brochure <b>→</b>
                   </button>
-                  <button type="button" className="btn dark" onClick={() => document.getElementById("prices")?.scrollIntoView({ behavior: "smooth" })}>
+                  <button type="button" className="bg-[#f24822] px-7 py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-colors flex items-center gap-2 focus:outline-none focus:ring-2" onClick={() => document.getElementById("prices")?.scrollIntoView({ behavior: "smooth" })}>
                     Dates &amp; Prices <b>→</b>
                   </button>
                 </div>
@@ -199,11 +221,11 @@ export default function TourPage({ tour }) {
             <div className="intro-sidebar">
               <div className="extension-box">
                 <b>Extensions</b>
-                <span>3 extensions available</span>
+                <span>{tour?.extensionCount || tour?.destinations?.length || 3} extensions available</span>
                 <span style={{ float: "right", color: "var(--coral)" }}>→</span>
               </div>
               <div className="map-card">
-                <img src="https://cdn.distantjourneys.co.uk/270fe5b2-9432-4200-b414-b31c00b0a944_Original%20file.jpg?apr_optimization=true&quality=75&width=600&height=600&fit=crop&format=webp&precrop=true" alt="Tour map" />
+                <img src={tour?.mapImage || "https://cdn.distantjourneys.co.uk/270fe5b2-9432-4200-b414-b31c00b0a944_Original%20file.jpg?apr_optimization=true&quality=75&width=600&height=600&fit=crop&format=webp&precrop=true"} alt="Tour map" />
               </div>
             </div>
           </div>
@@ -218,18 +240,12 @@ export default function TourPage({ tour }) {
               </div>
             </div>
             <div className="highlights">
-              <article className="highlight">
-                <img src="https://cdn.distantjourneys.co.uk/a517dbdf-c632-4263-bf27-b36800852e32_Original%20file.jpg?apr_optimization=true&quality=75&width=416&height=234&fit=crop&format=webp&precrop=true" alt="Mekong River cruise" />
-                <h3>Four-night Mekong River cruise from Vietnam to Cambodia</h3>
-              </article>
-              <article className="highlight">
-                <img src="https://cdn.distantjourneys.co.uk/3af5d31c-2dc7-4ac6-b9e2-b39900d02c4f_Original%20file.jpg?apr_optimization=true&quality=75&width=416&height=234&fit=crop&format=webp&precrop=true" alt="Ha Long Bay cruise" />
-                <h3>Two-night cruise around Ha Long Bay and Lan Ha Bay</h3>
-              </article>
-              <article className="highlight">
-                <img src="https://cdn.distantjourneys.co.uk/21c4ccc2-837b-4a6d-9698-b39900d0c9c5_Original%20file.jpg?apr_optimization=true&quality=75&width=416&height=234&fit=crop&format=webp&precrop=true" alt="Angkor Wat" />
-                <h3>Explore the temples of Angkor Wat</h3>
-              </article>
+              {highlightItems.map((item) => (
+                <article key={item.text} className="highlight">
+                  <img src={item.image} alt={item.text} />
+                  <h3>{item.text}</h3>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -242,16 +258,7 @@ export default function TourPage({ tour }) {
             </div>
           </div>
           <div className="inclusion-grid">
-            {[
-              ["✦", "Unforgettable experiences", "City sightseeing in Hanoi, Hoi An, Hue, Ho Chi Minh City and Phnom Penh; Vietnamese cookery, Cu Chi Tunnels and Angkor Wat."],
-              ["✈", "Flights with leading scheduled airlines", "Return economy flights with Singapore Airlines plus all domestic flights within Vietnam and Cambodia."],
-              ["⌂", "Carefully selected hotels", "Hotels in great locations with porterage and applicable taxes."],
-              ["♨", "Meals worth £669 per person", "Daily breakfasts, selected lunches and dinners, plus all cruise meals."],
-              ["≋", "All-inclusive cruises", "Two-night Ha Long Bay cruise and four-night Mekong Navigator cruise."],
-              ["✓", "Experienced Tour Manager", "Services of an experienced Tour Manager throughout the journey."],
-              ["↗", "On the ground", "All overseas transfers and modern, air-conditioned coaches."],
-              ["◎", "ATOL protected", "Your holiday is covered by our Price Promise and fully protected."],
-            ].map(([icon, title, text]) => (
+            {inclusionItems.map(([icon, title, text]) => (
               <div key={title} className="include">
                 <div className="include-icon">{icon}</div>
                 <div>
@@ -313,11 +320,11 @@ export default function TourPage({ tour }) {
                 <div className="meal-row">♨ &nbsp; Included meals: breakfast and selected meals throughout the itinerary</div>
 
                 <div className="hotel">
-                  <img src="https://cdn.distantjourneys.co.uk/6a47b46e-593f-436e-8f71-b21101033dc7/Pan%20Pacific%20Hanoi%20Deluxe%20Room%20Twin_Original%20file.jpg?apr_optimization=true&quality=75&width=360&height=202&fit=crop&format=webp&precrop=true" alt="Selected hotel" />
+                  <img src={accommodation?.image || "https://cdn.distantjourneys.co.uk/6a47b46e-593f-436e-8f71-b21101033dc7/Pan%20Pacific%20Hanoi%20Deluxe%20Room%20Twin_Original%20file.jpg?apr_optimization=true&quality=75&width=360&height=202&fit=crop&format=webp&precrop=true"} alt={accommodation?.name || "Selected hotel"} />
                   <div>
-                    <strong>Selected hotel</strong>
+                    <strong>{accommodation?.name || "Selected hotel"}</strong>
                     <div className="stars">★★★★★</div>
-                    <p>Comfortable accommodation in a convenient location.</p>
+                    <p>{accommodation?.description || "Comfortable accommodation in a convenient location."}</p>
                     <button type="button" className="pill">More details →</button>
                   </div>
                 </div>
@@ -349,7 +356,7 @@ export default function TourPage({ tour }) {
           <div className="price-layout">
             <div className="price-table">
               <div className="price-group">
-                <h3>2026 departures from only £5,895 per person</h3>
+                <h3>{firstDeparture} departures from only {tour?.priceFrom || "Enquire for price"} per person</h3>
                 <p>Prices and offers are per person based on two people sharing a twin or double room.</p>
                 <div className="price-head">
                   <span>Departing</span>
@@ -359,10 +366,10 @@ export default function TourPage({ tour }) {
                   <span></span>
                 </div>
                 <div className="price-row">
-                  <span>28th October 2026</span>
-                  <span>6 Rooms</span>
-                  <span><span className="old">£5,995</span><strong>£5,895</strong></span>
-                  <span className="save">Save £100</span>
+                  <span>{firstDeparture}</span>
+                  <span>Available</span>
+                  <span>{tour?.offerPrice ? <><span className="old">{tour.regularPrice}</span><strong>{tour.offerPrice}</strong></> : <strong>{tour?.regularPrice || tour?.priceFrom || "On request"}</strong>}</span>
+                  <span className="save">{tour?.offerPrice && tour?.regularPrice ? `Save ${tour.regularPrice} - ${tour.offerPrice}` : ""}</span>
                   <button type="button" className="pill" onClick={() => openModal("Enquire now")}>Enquire now →</button>
                 </div>
               </div>
@@ -370,8 +377,8 @@ export default function TourPage({ tour }) {
 
             <aside className="enquiry">
               <h3>Make an enquiry</h3>
-              <div>☎ &nbsp; <b>Call us today</b><strong>0800 141 3667</strong></div>
-              <div style={{ marginTop: "18px" }}>✉ &nbsp; <b>Email us</b><p style={{ color: "#fff" }}>If you have a question about our holidays or travel arrangements.</p></div>
+              <div>☎ &nbsp; <b>Call us today</b><strong>{tour?.enquiryPhone || "+91 80910 66115"}</strong></div>
+              <div style={{ marginTop: "18px" }}>✉ &nbsp; <b>Email us</b><p style={{ color: "#fff" }}>{tour?.enquiryText || "If you have a question about our holidays or travel arrangements."}</p></div>
               <button type="button" className="pill white" onClick={() => openModal("Send us a message")}>Send us a message →</button>
             </aside>
           </div>
@@ -382,11 +389,7 @@ export default function TourPage({ tour }) {
             <div className="eyebrow">Further information</div>
             <h2>Good to know</h2>
             <div className="accordion-list">
-              {[
-                ["Deposit", "Speak to our travel specialists for the latest deposit information."],
-                ["Flight upgrades", "Ask us about cabin upgrades and regional departure options."],
-                ["Visa information", "We will provide practical advice for your chosen departure."],
-              ].map(([title, content]) => (
+              {informationItems.map(({ title, description }) => (
                 <div key={title} className="accordion">
                   <button type="button" onClick={(event) => {
                     const panel = event.currentTarget.nextElementSibling;
@@ -396,7 +399,7 @@ export default function TourPage({ tour }) {
                   }}>
                     {title} <span>+</span>
                   </button>
-                  <div style={{ display: "none" }}>{content}</div>
+                  <div style={{ display: "none" }}>{description}</div>
                 </div>
               ))}
             </div>
@@ -406,8 +409,9 @@ export default function TourPage({ tour }) {
         <section className="section" id="reviews">
           <h2 className="cs-section-heading text-center">From our customers</h2>
           <div className="review-quote">
-            <p>Verified customer feedback is displayed here through the connected review service.</p>
-            <small>Feefo reviews</small>
+            <p>{reviewItems[0]?.text || "Verified customer feedback is displayed here through the connected review service."}</p>
+            {reviewItems[0]?.author && <small>{reviewItems[0].author}</small>}
+            {!reviewItems[0]?.author && <small>Feefo reviews</small>}
           </div>
         </section>
 
@@ -440,18 +444,15 @@ export default function TourPage({ tour }) {
           <div className="eyebrow">Gallery</div>
           <h2>See the journey in pictures</h2>
           <div className="gallery-grid">
-            {[
-              ["https://cdn.distantjourneys.co.uk/2f2e5929-e030-4c9f-a2dc-b21100d15a31/AdobeStock_182963760_Original%20file.jpeg?apr_optimization=true&quality=75&width=720&height=405&fit=crop&format=webp&precrop=true", "Vietnam"],
-              ["https://cdn.distantjourneys.co.uk/165514d5-b69c-4a8b-b23c-b21100da7a3d/AdobeStock_342808573_Original%20file.jpeg?apr_optimization=true&quality=75&width=720&height=405&fit=crop&format=webp&precrop=true", "Tra Que village, Vietnam"],
-              ["https://cdn.distantjourneys.co.uk/18b3c8c3-8c0f-4f2f-a4b6-b20b00dc0d0f/AdobeStock_199989342_Original%20file.jpeg?apr_optimization=true&quality=75&width=720&height=405&fit=crop&format=webp&precrop=true", "Angkor Wat, Cambodia"],
-              ["https://cdn.distantjourneys.co.uk/d2da132b-891d-4de9-9244-b21100daa072/AdobeStock_408191610_Original%20file.jpeg?apr_optimization=true&quality=75&width=720&height=405&fit=crop&format=webp&precrop=true", "Ha Long Bay, Vietnam"],
-              ["https://cdn.distantjourneys.co.uk/14273df1-bb3c-4392-8f59-b20b00c988fa/AdobeStock_119603331_Original%20file.jpeg?apr_optimization=true&quality=75&width=720&height=405&fit=crop&format=webp&precrop=true", "The Royal Palace, Phnom Penh, Cambodia"],
-            ].map(([image, caption]) => (
-              <div key={caption} className="gallery-item">
-                <img src={image} alt={caption} />
-                <p>{caption}</p>
-              </div>
-            ))}
+            {displayedGallery.map((image, index) => {
+              const caption = tour?.galleryCaptions?.[index] || tour?.destinations?.[index] || title;
+              return (
+                <div key={`${image}-${index}`} className="gallery-item">
+                  <img src={image} alt={caption} />
+                  <p>{caption}</p>
+                </div>
+              );
+            })}
           </div>
         </section>
 

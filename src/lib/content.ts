@@ -58,6 +58,11 @@ export interface PackageRecord {
   source: ContentSource;
   overview: string;
   gallery: string[];
+  galleryCaptions: string[];
+  regularPrice: string;
+  offerPrice: string;
+  extensionCount: number;
+  mapImage: string;
   categories: string[];
   destinations: string[];
   destinationIds: string[];
@@ -68,6 +73,11 @@ export interface PackageRecord {
   exclusions: string[];
   expenses: string[];
   importantInformation: { title: string; description: string }[];
+  inclusionsDetails: { title: string; description: string }[];
+  accommodations: { name: string; description: string; image: string }[];
+  reviews: { title: string; text: string; author: string; rating: number; date: string }[];
+  enquiryPhone: string;
+  enquiryText: string;
   priceDetails: { label: string; value: string }[];
   departureDates: string[];
 }
@@ -166,6 +176,31 @@ function asArray(value: unknown): unknown[] {
   return [];
 }
 
+function structuredItems(input: unknown): unknown[] {
+  if (typeof input !== "string") return asArray(input);
+  const trimmed = input.trim();
+  if (!trimmed) return [];
+
+  try {
+    const parsed = JSON.parse(trimmed);
+    return Array.isArray(parsed) ? parsed : [parsed];
+  } catch {
+    return [input];
+  }
+}
+
+function parseStructuredObject(input: unknown): Record<string, unknown> | null {
+  if (input && typeof input === "object" && !Array.isArray(input)) return input as Record<string, unknown>;
+  if (typeof input !== "string") return null;
+
+  try {
+    const parsed = JSON.parse(input.trim());
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed as Record<string, unknown> : null;
+  } catch {
+    return null;
+  }
+}
+
 function extractTextFromObject(item: unknown): string {
   if (typeof item === "string") return plainText(item);
   if (!item || typeof item !== "object") return "";
@@ -204,6 +239,29 @@ function relatedItinerary(input: unknown) {
     if (!finalDescription) return [];
     return [{ day: dayText || `Day ${index + 1}`, description: finalDescription }];
   });
+}
+
+function recordReferencesPackage(record: Record<string, unknown>, packageItem: PackageRecord) {
+  const packageIds = new Set([packageItem.id, packageItem.slug, packageItem.title].filter(Boolean));
+  const values = Object.entries(record)
+    .filter(([key]) => /package|tour/i.test(key))
+    .flatMap(([, item]) => asArray(item));
+
+  return values.some((item) => {
+    if (typeof item === "string") return packageIds.has(item) || item.endsWith(`/${packageItem.slug}`);
+    if (!item || typeof item !== "object") return false;
+    const linked = item as Record<string, unknown>;
+    return [linked.$id, linked.id, linked.slug, linked.title, linked.name].some((value) => packageIds.has(String(value || "")));
+  });
+}
+
+function relatedPackageRecords(records: Record<string, unknown>[], packageItem: PackageRecord) {
+  return records.filter((record) => recordReferencesPackage(record, packageItem));
+}
+
+function imageFromRecord(record: Record<string, unknown>) {
+  const images = stringArray(record.images);
+  return text(record, "image", "featured_image", "featuredImage", "map", "map_image", "mapImage", "url") || images[0] || "";
 }
 
 function appwriteDatabases() {
@@ -269,7 +327,7 @@ function categoryFallbackRecords(): CategoryRecord[] {
 function packageFallbackRecords(): PackageRecord[] {
   return toursFallback.tours
     .filter((item) => /india|himachal/i.test(item.country))
-    .map((item) => ({ id: String(item.id), title: item.title, slug: item.href.split("/").pop() || slugify(item.title), country: item.country, href: item.href, summary: item.highlights.join(" "), image: item.image, priceFrom: item.priceFrom, duration: item.duration, highlights: item.highlights, departing: item.departing, pricePer: item.pricePer, badge: item.badge, types: item.types, countrySlug: item.href.split("/").filter(Boolean)[0] || slugify(item.country), source: "fallback" as const, overview: item.highlights.join(" "), gallery: [item.image], categories: item.types, destinations: [item.country], destinationIds: [], locations: [], activities: [], itinerary: [], inclusions: [], exclusions: [], expenses: [], importantInformation: [], priceDetails: [{ label: "Tour price", value: item.priceFrom }], departureDates: [item.departing] }));
+    .map((item) => ({ id: String(item.id), title: item.title, slug: item.href.split("/").pop() || slugify(item.title), country: item.country, href: item.href, summary: item.highlights.join(" "), image: item.image, priceFrom: item.priceFrom, duration: item.duration, highlights: item.highlights, departing: item.departing, pricePer: item.pricePer, badge: item.badge, types: item.types, countrySlug: item.href.split("/").filter(Boolean)[0] || slugify(item.country), source: "fallback" as const, overview: item.highlights.join(" "), gallery: [item.image], galleryCaptions: [], regularPrice: item.priceFrom, offerPrice: "", extensionCount: 0, mapImage: "", categories: item.types, destinations: [item.country], destinationIds: [], locations: [], activities: [], itinerary: [], inclusions: [], exclusions: [], expenses: [], importantInformation: [], inclusionsDetails: [], accommodations: [], reviews: [], enquiryPhone: "", enquiryText: "", priceDetails: [{ label: "Tour price", value: item.priceFrom }], departureDates: [item.departing] }));
 }
 
 export async function getDestinations() {
@@ -339,9 +397,12 @@ export async function getPackages() {
     const categories = categoryIds.map((categoryId) => text(categoryRecords.find((item) => text(item, "$id", "id") === categoryId) || {}, "name") || categoryId);
     const destinations = destinationIds.map((destinationId) => text(destinationRecords.find((item) => text(item, "$id", "id") === destinationId) || {}, "name") || destinationId);
     const country = text(record, "country", "region") || "India";
-    const priceFrom = text(record, "offer_price", "price", "price_from", "priceFrom") || "Enquire for price";
+    const regularPrice = text(record, "price", "price_from", "priceFrom", "main_price");
+    const offerPrice = text(record, "offer_price", "offerPrice", "sale_price");
+    const priceFrom = offerPrice || regularPrice || "Enquire for price";
     const departing = text(record, "departing", "departure_dates");
-    return { id, title, slug, country, href: slug.startsWith("/") ? slug : `/${slugify(country)}-tours/${slug}`, summary: plainText(text(record, "description", "summary", "short_description")), image, priceFrom, duration: text(record, "duration", "days"), highlights: stringArray(record.highlights), departing, pricePer: text(record, "price_per", "pricePer") || "Per person", badge: text(record, "badge") || null, types: categories, countrySlug: `${slugify(country)}-tours`, source: "appwrite" as const, overview: plainText(text(record, "description", "summary")), gallery: [image, ...images.filter((item) => item !== image)], categories, destinations, destinationIds, locations: stringArray(record.locations), activities: stringArray(record.activities), itinerary: [], inclusions: [], exclusions: [], expenses: [], importantInformation: [], priceDetails: [{ label: "Tour price", value: priceFrom }], departureDates: departing ? [departing] : [] };
+    const extensionItems = asArray(value(record, "extensions", "extension", "extension_options"));
+    return { id, title, slug, country, href: slug.startsWith("/") ? slug : `/${slugify(country)}-tours/${slug}`, summary: plainText(text(record, "description", "summary", "short_description")), image, priceFrom, duration: text(record, "duration", "days"), highlights: relatedText(record.highlights), departing, pricePer: text(record, "price_per", "pricePer") || "Per person", badge: text(record, "badge") || null, types: categories, countrySlug: `${slugify(country)}-tours`, source: "appwrite" as const, overview: plainText(text(record, "description", "summary")), gallery: [image, ...images.filter((item) => item !== image)], galleryCaptions: stringArray(value(record, "image_captions", "gallery_captions", "captions")), regularPrice, offerPrice, extensionCount: extensionItems.length || Number(text(record, "extension_count", "extensions_count")) || 0, mapImage: text(record, "map_image", "mapImage", "map"), categories, destinations, destinationIds, locations: stringArray(record.locations), activities: stringArray(record.activities), itinerary: [], inclusions: [], exclusions: [], expenses: [], importantInformation: [], inclusionsDetails: [], accommodations: [], reviews: [], enquiryPhone: text(record, "phone", "telephone", "enquiry_phone"), enquiryText: text(record, "enquiry_text", "enquiry_description", "contact_text"), priceDetails: [{ label: "Tour price", value: priceFrom }], departureDates: departing ? [departing] : [] };
   });
 }
 
@@ -349,7 +410,7 @@ export async function getPackageBySlug(slug: string) {
   const packageItem = (await getPackages()).find((item) => item.slug === slug);
   if (!packageItem) return undefined;
 
-  const collections = ["itinerary", "package_inclusions", "package_exclusions", "package_expenses", "package_important_informaion", "locations", "activities", "accommodations"];
+  const collections = ["itinerary", "package_inclusions", "package_exclusions", "package_expenses", "package_important_informaion", "locations", "activities", "accommodations", "reviews_stats"];
 
   const related = await Promise.all(
     collections.map(async (collection) => {
@@ -366,11 +427,13 @@ export async function getPackageBySlug(slug: string) {
   const records = new Map(related);
   const getRecords = (collection: string) => records.get(collection) || [];
 
-  const itineraryRecords = getRecords("itinerary");
-  const inclusionRecords = getRecords("package_inclusions");
-  const exclusionRecords = getRecords("package_exclusions");
-  const expenseRecords = getRecords("package_expenses");
-  const importantInfoRecords = getRecords("package_important_informaion");
+  const itineraryRecords = relatedPackageRecords(getRecords("itinerary"), packageItem);
+  const inclusionRecords = relatedPackageRecords(getRecords("package_inclusions"), packageItem);
+  const exclusionRecords = relatedPackageRecords(getRecords("package_exclusions"), packageItem);
+  const expenseRecords = relatedPackageRecords(getRecords("package_expenses"), packageItem);
+  const importantInfoRecords = relatedPackageRecords(getRecords("package_important_informaion"), packageItem);
+  const accommodationRecords = relatedPackageRecords(getRecords("accommodations"), packageItem);
+  const reviewRecords = relatedPackageRecords(getRecords("reviews_stats"), packageItem);
 
   const itinerary = itineraryRecords.flatMap((record) => {
     const dayData = value(record, "days", "itinerary", "entries", "details", "items");
@@ -386,6 +449,28 @@ export async function getPackageBySlug(slug: string) {
     return values.flatMap((entry) => relatedText(entry));
   });
 
+  const inclusionsDetails = inclusionRecords.flatMap((record) => {
+    const title = plainText(text(record, "title", "name", "label", "heading") || "Included");
+    const description = plainText(text(record, "description", "details", "content", "summary") || extractTextFromObject(record));
+    return description ? [{ title, description }] : [];
+  });
+
+  const accommodations = accommodationRecords.map((record) => ({
+    name: plainText(text(record, "name", "title", "hotel")),
+    description: plainText(text(record, "description", "details", "summary")),
+    image: imageFromRecord(record),
+  })).filter((item) => item.name || item.description || item.image);
+
+  const reviews = reviewRecords.map((record) => ({
+    title: plainText(text(record, "title", "heading")),
+    text: plainText(text(record, "text", "review", "description", "content")),
+    author: plainText(text(record, "author", "name", "reviewer")),
+    rating: Number(text(record, "rating", "score")) || 5,
+    date: plainText(text(record, "date", "published_at", "publishedAt")),
+  })).filter((item) => item.text || item.title);
+
+  const mapImage = itineraryRecords.map(imageFromRecord).find(Boolean) || packageItem.mapImage;
+
   const exclusions = exclusionRecords.flatMap((record) => {
     const values = [value(record, "exclusions", "items", "list", "content", "details"), value(record, "description", "summary")];
     return values.flatMap((entry) => relatedText(entry));
@@ -397,19 +482,20 @@ export async function getPackageBySlug(slug: string) {
   });
 
   const importantInformation = importantInfoRecords.flatMap((record) => {
-    const rawItems = [value(record, "items", "info", "details", "content", "list"), value(record, "description", "summary")];
-    return rawItems.flatMap((entry) => {
-      const nested = asArray(entry);
-      if (!nested.length) return [];
-      return nested.flatMap((item) => {
-        if (typeof item === "string") return [{ title: "Important information", description: plainText(item) }];
-        if (!item || typeof item !== "object") return [];
-        const infoRecord = item as Record<string, unknown>;
-        const title = plainText(text(infoRecord, "title", "name", "label") || "Important information");
-        const description = plainText(text(infoRecord, "description", "details", "summary", "content") || extractTextFromObject(infoRecord));
-        return description ? [{ title, description }] : [];
-      });
+    const rawItems = [value(record, "description", "details", "items", "info", "content", "list", "summary") || record];
+
+    const parsedItems = rawItems.flatMap((entry) => structuredItems(entry)).flatMap((item) => {
+      const parsedItem = parseStructuredObject(item);
+      if (!parsedItem) return typeof item === "string" ? [{ title: "Important information", description: plainText(item) }] : [];
+
+      const nestedObject = parseStructuredObject(value(parsedItem, "description", "details", "summary", "content"));
+      const source = nestedObject || parsedItem;
+      const title = plainText(text(source, "title", "name", "label") || "Important information");
+      const description = plainText(text(source, "description", "details", "summary", "content") || extractTextFromObject(source));
+      return description ? [{ title, description }] : [];
     });
+
+    return parsedItems.filter((item, index, items) => items.findIndex((candidate) => candidate.title === item.title && candidate.description === item.description) === index);
   });
 
   return {
@@ -419,6 +505,10 @@ export async function getPackageBySlug(slug: string) {
     exclusions: exclusions.length ? exclusions : packageItem.exclusions || [],
     expenses: expenses.length ? expenses : packageItem.expenses || [],
     importantInformation: importantInformation.length ? importantInformation : packageItem.importantInformation || [],
+    inclusionsDetails: inclusionsDetails.length ? inclusionsDetails : packageItem.inclusionsDetails || [],
+    accommodations: accommodations.length ? accommodations : packageItem.accommodations || [],
+    reviews: reviews.length ? reviews : packageItem.reviews || [],
+    mapImage,
   };
 }
 
