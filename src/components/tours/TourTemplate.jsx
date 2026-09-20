@@ -4,7 +4,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import "./TourTemplate.css";
 import HeroSection from "../hero/HeroSection";
+import TestimonialSection from "@/components/sections/TestimonialsSection";
 import { truncateWords } from "../../utils/truncateWords.js";
+
+
 
 export default function TourPage({ tour }) {
 
@@ -338,13 +341,6 @@ export default function TourPage({ tour }) {
           </div>
         </section>
 
-        {/* <section className="section" id="offers">
-          <div className="eyebrow">Offers</div>
-          <h2>Make the most of your journey</h2>
-          <div className="info-box">
-            <b>Special Offers:</b> SAVE £100 per person on Vietnam &amp; Cambodia tours departing from September 2026 to August 2027. <b>Book by 30th September 2026.</b>
-          </div>
-        </section> */}
 
         <section className="section mx-5" id="prices">
           <div className="eyebrow">Dates and prices</div>
@@ -406,39 +402,6 @@ export default function TourPage({ tour }) {
           </div>
         </section>
 
-        <section className="section" id="reviews">
-          <h2 className="cs-section-heading text-center">From our customers</h2>
-          <div className="review-quote">
-            <p>{reviewItems[0]?.text || "Verified customer feedback is displayed here through the connected review service."}</p>
-            {reviewItems[0]?.author && <small>{reviewItems[0].author}</small>}
-            {!reviewItems[0]?.author && <small>Feefo reviews</small>}
-          </div>
-        </section>
-
-        {/* 
-        <section className="section" id="freedom-days">
-          <div className="eyebrow">Freedom Days</div>
-          <h2>Make the most of your free time</h2>
-          <p>Optional excursions can be arranged while you are on tour, while some require pre-booking.</p>
-          <select className="select" value={freedom} onChange={(event) => setFreedom(event.target.value)}>
-            <option value="Hanoi">Hanoi</option>
-            <option value="Hoi An">Hoi An</option>
-            <option value="Hue">Hue</option>
-            <option value="Siem Reap">Siem Reap</option>
-          </select>
-          <div className="freedom-cards">
-            <div className="freedom-card">
-              <img id="freedomImg" src={freedomMap[freedom].image} alt={freedomMap[freedom].title} />
-              <h3 id="freedomTitle">{freedomMap[freedom].title}</h3>
-              <span className="round">→</span>
-            </div>
-            <div className="freedom-card">
-              <img src="https://cdn.distantjourneys.co.uk/165514d5-b69c-4a8b-b23c-b21100da7a3d/AdobeStock_342808573_Original%20file.jpeg?apr_optimization=true&quality=75&width=720&height=405&fit=crop&format=webp&precrop=true" alt="Local flavours and markets" />
-              <h3>Local flavours and markets</h3>
-              <span className="round">→</span>
-            </div>
-          </div>
-        </section> */}
 
         <section className="full-section mx-5" id="gallery">
           <div className="eyebrow">Gallery</div>
@@ -456,57 +419,9 @@ export default function TourPage({ tour }) {
           </div>
         </section>
 
-        {/* <section className="difference mx-5" id="difference">
-          <div>
-            <h2>The Distant Journeys difference…</h2>
-            <div style={{ color: "var(--coral)", fontSize: "27px" }}>◉ ◉ ◉</div>
-          </div>
-          <div className="trust">
-            <div className="trust-item">
-              <span className="trust-check">✓</span>
-              <div>
-                <h3>Specialists in the extraordinary</h3>
-                <p>We craft extraordinary award-winning tours to the world’s most iconic places, backed by British Travel Awards and Feefo’s trusted status.</p>
-              </div>
-            </div>
-            <div className="trust-item">
-              <span className="trust-check">✓</span>
-              <div>
-                <h3>Our price promise to you</h3>
-                <p>You can relax knowing you are paying the best price for your holiday with our Price Promise.</p>
-              </div>
-            </div>
-            <div className="trust-item">
-              <span className="trust-check">✓</span>
-              <div>
-                <h3>100% financial protection</h3>
-                <p>Book with confidence knowing your holiday is fully protected.</p>
-              </div>
-            </div>
-          </div>
-        </section> */}
+        <TestimonialSection />
 
-        <section className="full-section mx-5" id="feefo">
-          <h2>Customer reviews</h2>
-          <div className="reviews">
-            <div className="reviews-image">
-              <div className="score"><span>★</span> 5/5</div>
-            </div>
-            <div className="review-feed">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <div key={index} className="review-card">
-                  <div className="stars">★★★★★</div>
-                  <p>Verified review content will appear here when the review service is connected.</p>
-                  <b>Verified traveller</b>
-                  <small> Reviewed through Feefo</small>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="center">
-            <button type="button" className="pill pill-dark">View all reviews on Feefo →</button>
-          </div>
-        </section>
+       
 
       </main>
 
